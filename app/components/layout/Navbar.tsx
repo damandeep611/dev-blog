@@ -16,7 +16,7 @@ const Navbar: React.FC<NavbarProps> = () => {
     { name: "Blog", path: "/blog" },
   ];
   return (
-    <nav className="flex items-center justify-center bg-white rounded-full border border-solid  shadow-md container mx-auto max-w-3xl my-6 py-3">
+    <nav className="flex items-center justify-center bg-white rounded-full border border-solid  shadow-md container mx-auto max-w-xl my-6 py-3">
       {items.map((item) => (
         <Link href={item.path} key={item.name} passHref>
           <motion.span
