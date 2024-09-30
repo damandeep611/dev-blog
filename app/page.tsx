@@ -7,6 +7,7 @@ import Avatar from "./avatar";
 import MoreStories from "./more-stories";
 
 import { getAllPosts } from "@/lib/api";
+import Hero from "./components/ui/Hero";
 
 function HeroPost({
   title,
@@ -57,7 +58,8 @@ export default async function Page() {
   const morePosts = allPosts.slice(1);
 
   return (
-    <div className="container mx-auto px-5">
+    <div className="container mx-auto px-5 flex flex-col items-center">
+      <Hero />
       {heroPost && (
         <HeroPost
           title={heroPost.title}

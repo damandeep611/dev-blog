@@ -26,7 +26,7 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body>
         <section className="min-h-screen">
-          <Navbar />
+          {/* <Navbar /> */}
           <main>{children}</main>
           <Footer />
         </section>
