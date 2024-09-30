@@ -22,7 +22,7 @@ export default function Hero() {
           </div>
         </div>
         <div className="flex justify-center items-center gap-4 ">
-          <div className="flex justify-center items-center gap-2 bg-green-200 p-1 rounded-xl">
+          <div className="flex justify-center items-center gap-2 font-light bg-green-200 p-1 px-4 rounded-xl">
             <span>
               <MdEmail />
             </span>
