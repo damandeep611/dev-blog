@@ -24,24 +24,28 @@ function HeroPost({
   slug: string;
 }) {
   return (
-    <section className="container mx-auto max-w-7xl">
-      <div className=" flex items-center justify-center gap-4  ">
-        <div className="max-w-xl ">
+    <section className="container mx-auto my-6 p-2 hover:bg-gray-200 hover:rounded-xl ">
+      <div className=" flex flex-col lg:flex-row gap-2 items-center justify-center   ">
+        <div className="lg:w-1/2 flex items-center justify-center">
           <CoverImage title={title} slug={slug} url={coverImage.url} />
         </div>
-        <div className="flex flex-col">
-          <div>
-            <h3 className="mb-4 text-xl lg:text-xl leading-tight">
+        <div className="flex flex-col  lg:w-1/2">
+          <div className="flex flex-col gap-4">
+            <h3 className=" text-xl font-bold lg:text-3xl leading-tight">
               <Link href={`/posts/${slug}`} className="hover:underline">
                 {title}
               </Link>
             </h3>
-            <div className="mb-4 md:mb-0 text-lg">
+            <div>
+              <p className="text-sm lg:text-lg font-medium leading-relaxed ">
+                {excerpt}
+              </p>
+            </div>
+            <div className=" md:mb-0 text-xs lg:text-sm text-gray-500">
               <DateComponent dateString={date} />
             </div>
           </div>
-          <div>
-            <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
+          <div className="my-4">
             {author && <Avatar name={author.name} picture={author.picture} />}
           </div>
         </div>
