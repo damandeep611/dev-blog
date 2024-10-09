@@ -29,7 +29,6 @@ export default function RootLayout({
         <section className="min-h-screen">
           <NavDock />
           <main>{children}</main>
-          <Footer />
         </section>
       </body>
     </html>

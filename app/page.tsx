@@ -1,11 +1,11 @@
-import Hero from "./components/ui/Hero";
-import Banner from "./components/ui/Banner";
+"use client";
+
+import HeroSection from "./components/ui/HeroSection";
 
 export default async function Page() {
   return (
-    <div className="container mx-auto px-2 lg:px-5 flex flex-col items-center ">
-      <Hero />
-      <Banner />
+    <div className="w-full ">
+      <HeroSection />
     </div>
   );
 }
