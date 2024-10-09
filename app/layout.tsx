@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
+import NavDock from "./components/layout/NavDock";
 
 export const metadata = {
   title: `devdaman`,
@@ -26,7 +27,7 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body>
         <section className="min-h-screen">
-          <Navbar />
+          <NavDock />
           <main>{children}</main>
           <Footer />
         </section>
