@@ -6,7 +6,7 @@ import DateComponent from "../date";
 import Avatar from "../avatar";
 import { draftMode } from "next/headers";
 import { getAllPosts } from "@/lib/api";
-import Hero from "../components/ui/Hero";
+
 
 function HeroPost({
   title,
@@ -24,7 +24,7 @@ function HeroPost({
   slug: string;
 }) {
   return (
-    <section className="container mx-auto my-6 p-2 hover:bg-gray-200 hover:rounded-xl ">
+    <section className="container mx-auto my-6 p-2  hover:bg-gray-600 hover:rounded-xl">
       <div className=" flex flex-col lg:flex-row gap-2 items-center justify-center   ">
         <div className="lg:w-1/2 flex items-center justify-center">
           <CoverImage title={title} slug={slug} url={coverImage.url} />
@@ -62,7 +62,6 @@ export default async function Page() {
 
   return (
     <div className="container mx-auto px-2 lg:px-5 flex flex-col items-center ">
-      <Hero />
       {heroPost && (
         <HeroPost
           title={heroPost.title}
@@ -73,7 +72,7 @@ export default async function Page() {
           excerpt={heroPost.excerpt}
         />
       )}
-      <MoreStories morePosts={morePosts} />
+      {morePosts?.length > 0 && <MoreStories morePosts={morePosts} />}
     </div>
   );
 }

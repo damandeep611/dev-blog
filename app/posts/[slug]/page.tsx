@@ -12,6 +12,11 @@ import { getAllPosts, getPostAndMorePosts } from "@/lib/api";
 export async function generateStaticParams() {
   const allPosts = await getAllPosts(false);
 
+  // Add null check before mapping
+  if (!allPosts) {
+    return [];
+  }
+
   return allPosts.map((post) => ({
     slug: post.slug,
   }));
@@ -33,7 +38,7 @@ export default async function PostPage({
         </Link>
         .
       </h2>
-      <article>
+      <article className="">
         <h1 className="mb-12 text-center text-6xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl">
           {post.title}
         </h1>
@@ -57,7 +62,7 @@ export default async function PostPage({
         </div>
 
         <div className="mx-auto max-w-2xl">
-          <div className="prose">
+          <div className="prose lg:prose-xl text-neutral-400 prose-h3:text-neutral-400 prose-h1:text-neutral-200">
             <Markdown content={post.content} />
           </div>
         </div>

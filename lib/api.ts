@@ -70,19 +70,33 @@ export async function getPreviewPostBySlug(slug: string | null): Promise<any> {
 }
 
 export async function getAllPosts(isDraftMode: boolean): Promise<any[]> {
-  const entries = await fetchGraphQL(
-    `query {
-      postCollection(where: { slug_exists: true }, order: date_DESC, preview: ${
-        isDraftMode ? "true" : "false"
-      }) {
-        items {
-          ${POST_GRAPHQL_FIELDS}
+  try {
+    const entries = await fetchGraphQL(
+      `query {
+        postCollection(where: { slug_exists: true }, order: date_DESC, preview: ${
+          isDraftMode ? "true" : "false"
+        }) {
+          items {
+            ${POST_GRAPHQL_FIELDS}
+          }
         }
-      }
-    }`,
-    isDraftMode,
-  );
-  return extractPostEntries(entries);
+      }`,
+      isDraftMode
+    );
+
+    console.log("Contentful Response:", entries);
+
+    const posts = extractPostEntries(entries);
+    if (!posts) {
+      console.error("No posts returned from Contentful");
+      return [];
+    }
+
+    return posts;
+  } catch (error) {
+    console.error("Error fetching posts from Contentful:", error);
+    return [];
+  }
 }
 
 export async function getPostAndMorePosts(

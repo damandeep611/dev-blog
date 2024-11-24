@@ -1,58 +1,117 @@
-import { MdEmail } from "react-icons/md";
-import { FaXTwitter, FaInstagram, FaLinkedin } from "react-icons/fa6";
-import Link from "next/link";
+"use client";
+import { motion } from "framer-motion";
+import pfp from "../../../public/images/pfpdark.jpeg";
+import Image from "next/image";
+import HeadingHero from "../animations/HeadingHero";
 
 export default function Hero() {
   return (
-    <section className="max-w-6xl container   my-4 px-1 lg:px-4 ">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <div>
-            <img
-              src="/images/pfpdark.jpeg"
-              alt=""
-              width={60}
-              height={70}
-              className="rounded-full"
-            />
-          </div>
-          <div className="flex flex-col justify-center">
-            <span className="font-bold text-sm lg:text-base ">Daman deep</span>
-            <span className="text-gray-500 text-xs lg:text-sm">
-              Full stack Developer
-            </span>
-          </div>
-        </div>
-        <div className="flex justify-center items-center gap-4 ">
-          <div className="flex justify-center items-center gap-2 font-light bg-green-100 p-1 px-4 rounded-xl">
-            <span>
-              <MdEmail />
-            </span>
-            <a href="mailto:work@devdaman.com" className="text-xs lg:text-sm">
-              work@devdaman.com
-            </a>
-          </div>
-          <div className="hidden sm:block">
-            <ul className="flex items-center justify-center gap-2">
-              <li>
-                <Link href="https://twitter.com">
-                  <FaXTwitter className="w-5 h-5" />
-                </Link>
-              </li>
-              <li>
-                <Link href="https://instagram.com">
-                  <FaInstagram className="w-5 h-5" />
-                </Link>
-              </li>
-              <li>
-                <Link href="https://linkedin.com">
-                  <FaLinkedin className="w-5 h-5" />
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
+    <div className="  relative overflow-hidden">
+      {/* pattern background hero section */}
+      <div className="absolute inset-0 h-full w-full opacity-10">
+        <svg
+          className="w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
+          width="100%"
+          height="100%"
+        >
+          <defs>
+            <pattern
+              id="coding-pattern"
+              x="0"
+              y="0"
+              width="100"
+              height="100"
+              patternUnits="userSpaceOnUse"
+            >
+              <text x="0" y="10" fill="white" fontSize="10">
+                10110101
+              </text>
+              <text x="50" y="20" fill="white" fontSize="10">
+                01001011
+              </text>
+              <text x="10" y="40" fill="white" fontSize="20">
+                {"{"}'{"}"}
+              </text>
+              <text x="70" y="70" fill="white" fontSize="20">
+                []
+              </text>
+              <text x="30" y="60" fill="white" fontSize="15">
+                &lt;/&gt;
+              </text>
+              <text x="80" y="30" fill="white" fontSize="15">
+                #
+              </text>
+              <text x="0" y="80" fill="white" fontSize="15">
+                ;
+              </text>
+              <text x="60" y="90" fill="white" fontSize="15">
+                =
+              </text>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#coding-pattern)" />
+        </svg>
       </div>
-    </section>
+      {/* pattern ends here */}
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-4">
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ delay: 0.5 }}
+          className="relative mb-8"
+        >
+          <Image
+            src={pfp}
+            alt="profile"
+            width={60}
+            height={70}
+            className="rounded-full"
+          />
+        </motion.div>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-2xl mb-6"
+        >
+          Hi, I'm Daman <span className="animate-wave inline-block">✌️</span>
+        </motion.h2>
+        <HeadingHero />
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="max-w-2xl mb-8 text-gray-400"
+        >
+          Blockhain smart contract developer, React js full stack developer.
+          Specialize in smart contract development. Located in India
+        </motion.p>
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.9 }}
+          className="bg-white text-black px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition-colors"
+        >
+          Connect
+        </motion.button>
+      </div>
+      <style jsx global>{`
+        @keyframes wave {
+          0%,
+          100% {
+            transform: rotate(0deg);
+          }
+          50% {
+            transform: rotate(20deg);
+          }
+        }
+        .animate-wave {
+          animation: wave 2s infinite;
+        }
+      `}</style>
+    </div>
   );
 }

@@ -1,7 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 
-import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import NavDock from "./components/layout/NavDock";
 
@@ -25,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body>
+      <body className="bg-black text-white">
         <section className="min-h-screen">
           <NavDock />
           <main>{children}</main>

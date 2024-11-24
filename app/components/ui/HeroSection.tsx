@@ -90,9 +90,7 @@ export default function HeroSection() {
                 />
               </div>
               <div className="flex flex-col justify-center">
-                <span className="font-bold text-sm lg:text-base ">
-                  Daman deep
-                </span>
+                <span className="font-bold text-sm lg:text-base ">Daman</span>
                 <span className="text-gray-500 text-xs lg:text-sm">
                   Full stack Developer
                 </span>
