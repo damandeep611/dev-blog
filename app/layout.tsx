@@ -24,11 +24,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="bg-black text-white">
-        <section className="min-h-screen">
-          <NavDock />
-          <main>{children}</main>
-        </section>
+      <body className="">
+        <NavDock />
+        <main>{children}</main>
       </body>
     </html>
   );

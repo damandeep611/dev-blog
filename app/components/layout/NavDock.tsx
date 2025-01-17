@@ -34,7 +34,7 @@ export default function NavDock() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed bottom-8 z-50 left-1/2 -translate-x-1/2 bg-white/80 backdrop-blur-sm text-black rounded-full p-1 flex items-center gap-1 shadow-lg">
+    <nav className="fixed top-8 z-50 left-1/2 md:left-1/4 -translate-x-1/2 bg-white/80 backdrop-blur-sm text-black rounded-full p-1 flex items-center gap-1 shadow-lg">
       {menuItems.map((item, index) => {
         const isActive = pathname === item.href;
         return (
