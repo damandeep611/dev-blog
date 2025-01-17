@@ -23,9 +23,11 @@ export default function HeroSection() {
           {/* Stats Circle */}
           <div className="aspect-square">
             <div className="bg-black rounded-full w-full h-full flex flex-col items-center justify-center text-white p-8">
-              <h2 className="text-5xl md:text-6xl font-bold mb-2">160K</h2>
+              <h2 className="text-5xl md:text-6xl font-bold mb-2">
+                UI Library
+              </h2>
               <p className="text-center text-gray-300 text-base md:text-lg">
-                Developers inspired worldwide
+                Animations filled React Tailwind and framer motion UI library
               </p>
             </div>
           </div>
@@ -39,7 +41,7 @@ export default function HeroSection() {
                   </div>
                 </div>
                 <h3 className="text-white text-2xl md:text-3xl font-semibold text-center leading-tight">
-                  The 7 steps of building scalable React apps.
+                  How to make local Ai Agent to assit in Coding
                 </h3>
               </div>
               <div className="flex justify-between items-center mt-4">

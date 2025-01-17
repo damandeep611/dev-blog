@@ -54,12 +54,14 @@ export default function NavDock() {
                   opacity: isActive ? 1 : 0,
                   scale: isActive ? 1 : 0.8,
                 }}
-                whileHover={{ opacity: 0.8, scale: 1 }}
+                whileHover={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.2 }}
               />
 
               {/* Text */}
-              <span className="relative z-10">{item.name}</span>
+              <span className="relative z-10 text-base font-light leading-[1.15] font-sans">
+                {item.name}
+              </span>
 
               {/* Click effect */}
               <AnimatePresence>

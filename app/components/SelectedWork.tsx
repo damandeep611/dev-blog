@@ -1,18 +1,18 @@
 const selectedWorks = [
   {
-    title: "Haiku",
-    info: "react utility library",
+    title: "Kallista UI",
+    info: "react Tailwind UI library",
   },
   {
-    title: "Bits",
-    info: "animated ui components",
+    title: "Tracker ",
+    info: "Habit and skill tracker with time",
   },
   {
-    title: "ip wire",
-    info: "straightforward ip tracker",
+    title: "BuildxPrompt",
+    info: "Text Prompt Library ",
   },
   {
-    title: "Smallbite games",
+    title: "Agentic",
     info: "coming soon",
   },
   {
