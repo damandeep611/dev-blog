@@ -26,7 +26,7 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body className="">
         <NavDock />
-        <main>{children}</main>
+        <main className="py-20 overflow-hidden">{children}</main>
       </body>
     </html>
   );

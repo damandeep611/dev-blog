@@ -10,7 +10,6 @@ export default async function Page() {
     <div className="w-full  ">
       <HeroSection />
       <SelectedWork />
-      <WorkSection />
     </div>
   );
 }

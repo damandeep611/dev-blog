@@ -3,25 +3,26 @@
 
 export default function HeroSection() {
   return (
-    <section className="min-h-screen">
-      <div className="flex flex-col md:flex-row mt-24 md:mt-4 px-4 items-center">
+    <section className="min-h-screen ">
+      <div className="flex flex-col md:flex-row  px-4 items-center">
         {/* left info col */}
-        <div className="flex-1 ">
-          <div className=" rounded-3xl overflow-hidden relative min-h-[700px]">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-teal-500 animate-gradient">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent)] animate-wave"></div>
-            </div>
-            <div className="absolute bg-white bottom-0 rounded-r-2xl p-12">
-              <h1 className="text-black text-6xl font-bold max-w-2xl">
-                developer & creative designer
-              </h1>
-            </div>
+        <div className="flex-1 h-full">
+          <div className="my-8 ">
+            <h1 className="text-[80px] font-light">I'm daman</h1>
+            <span className="text-lg font-semibold">
+              I design and develop products with purpose and details
+            </span>
+          </div>
+          <div className=" p-12  bg-black rounded-lg">
+            <h1 className="text-white text-6xl font-bold max-w-2xl">
+              developer & creative designer
+            </h1>
           </div>
         </div>
         {/* right project column  */}
-        <div className="w-[400px] flex flex-col items-center justify-between gap-2 px-4">
+        <div className="w-[400px] flex flex-col items-center justify-between gap-2  px-4">
           {/* Stats Circle */}
-          <div className="aspect-square">
+          <div className="aspect-square ">
             <div className="bg-black rounded-full w-full h-full flex flex-col items-center justify-center text-white p-8">
               <h2 className="text-5xl md:text-6xl font-bold mb-2">
                 UI Library

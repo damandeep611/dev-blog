@@ -9,7 +9,7 @@ const selectedWorks = [
   },
   {
     title: "BuildxPrompt",
-    info: "Text Prompt Library ",
+    info: "Text Prompt Marketplace Library ",
   },
   {
     title: "Agentic",
@@ -53,7 +53,7 @@ const SelectedWorkCards = ({ title, info }: selectedWorksCardsProps) => {
     <div className=" flex items-center justify-between border-b border-black w-full group">
       <div className="py-6 border-b flex flex-col ">
         <p className="text-[0.8rem] uppercase">{info}</p>
-        <h2 className="text-[6rem] capitalize  tracking-tight transition-all duration-300 group-hover:pl-4 group-hover:text-gray-700">
+        <h2 className="text-5xl md:text-[6rem] capitalize  tracking-tight transition-all duration-300 group-hover:pl-4 group-hover:text-gray-700">
           {title}
         </h2>
       </div>
