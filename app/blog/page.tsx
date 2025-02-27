@@ -7,7 +7,6 @@ import Avatar from "../avatar";
 import { draftMode } from "next/headers";
 import { getAllPosts } from "@/lib/api";
 
-
 function HeroPost({
   title,
   coverImage,
@@ -24,29 +23,41 @@ function HeroPost({
   slug: string;
 }) {
   return (
-    <section className="container mx-auto my-6 p-2  hover:bg-gray-600 hover:rounded-xl">
-      <div className=" flex flex-col lg:flex-row gap-2 items-center justify-center   ">
-        <div className="lg:w-1/2 flex items-center justify-center">
-          <CoverImage title={title} slug={slug} url={coverImage.url} />
+    <section className="w-full max-w-4xl mb-16 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200">
+      <div className="flex flex-col lg:flex-row overflow-hidden">
+        <div className="lg:w-1/2">
+          <div className="h-full">
+            <CoverImage title={title} slug={slug} url={coverImage.url} />
+          </div>
         </div>
-        <div className="flex flex-col  lg:w-1/2">
-          <div className="flex flex-col gap-4">
-            <h3 className=" text-xl font-bold lg:text-3xl leading-tight">
-              <Link href={`/posts/${slug}`} className="hover:underline">
+        <div className="p-6 lg:w-1/2 flex flex-col justify-between">
+          <div>
+            <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-gray-900">
+              <Link
+                href={`/posts/${slug}`}
+                className="hover:text-indigo-600 transition-colors duration-200"
+              >
                 {title}
               </Link>
             </h3>
-            <div>
-              <p className="text-sm lg:text-lg font-medium leading-relaxed ">
-                {excerpt}
-              </p>
-            </div>
-            <div className=" md:mb-0 text-xs lg:text-sm text-gray-500">
-              <DateComponent dateString={date} />
-            </div>
+            <p className="text-gray-700 text-base lg:text-lg mb-4 line-clamp-3">
+              {excerpt}
+            </p>
           </div>
-          <div className="my-4">
-            {author && <Avatar name={author.name} picture={author.picture} />}
+          <div className="mt-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                {author && (
+                  <Avatar name={author.name} picture={author.picture} />
+                )}
+                <span className="ml-2 text-sm text-gray-600">
+                  {author.name}
+                </span>
+              </div>
+              <div className="text-sm text-gray-500">
+                <DateComponent dateString={date} />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -61,18 +72,34 @@ export default async function Page() {
   const morePosts = allPosts.slice(1);
 
   return (
-    <div className="container mx-auto px-2 lg:px-5 flex flex-col items-center ">
-      {heroPost && (
-        <HeroPost
-          title={heroPost.title}
-          coverImage={heroPost.coverImage}
-          date={heroPost.date}
-          author={heroPost.author}
-          slug={heroPost.slug}
-          excerpt={heroPost.excerpt}
-        />
-      )}
-      {morePosts?.length > 0 && <MoreStories morePosts={morePosts} />}
+    <div className="bg-gray-50 min-h-screen py-12">
+      <div className="container mx-auto px-4">
+        <header className="mb-12 text-center">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Blogger</h1>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Discover interesting articles and stay updated with the latest news
+          </p>
+        </header>
+
+        <div className="flex flex-col items-center">
+          {heroPost && (
+            <HeroPost
+              title={heroPost.title}
+              coverImage={heroPost.coverImage}
+              date={heroPost.date}
+              author={heroPost.author}
+              slug={heroPost.slug}
+              excerpt={heroPost.excerpt}
+            />
+          )}
+
+          <h2 className="text-2xl font-bold text-gray-900 mb-8 self-start pl-4">
+            Latest Posts
+          </h2>
+
+          {morePosts?.length > 0 && <MoreStories morePosts={morePosts} />}
+        </div>
+      </div>
     </div>
   );
 }

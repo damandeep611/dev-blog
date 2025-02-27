@@ -43,7 +43,7 @@ export default function HeroSection() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className=" text-sm"
             >
-              @AqDaman
+              @devDaman
             </motion.p>
           </div>
         </div>
@@ -75,20 +75,20 @@ export default function HeroSection() {
             and occasionally indie games.
           </p>
 
-          <div className="bg-gray-200/50 rounded-xl p-6 backdrop-blur-sm border border-gray-700">
-            <h2 className="text-xl font-semibold mb-4 text-blue-950">
+          <div className="bg-gray-200/50 rounded-xl p-4 backdrop-blur-sm border border-gray-700">
+            <h2 className="text-base font-semibold mb-4 text-blue-950">
               Currently Working On
             </h2>
-            <p className="text-gray-900 mb-4">
+            <p className="text-gray-900 text-sm mb-4">
               A Local AI Agent to work as a Research Assistant with locally
               installed LLM with:
             </p>
-            <div className="flex flex-wrap gap-3 mb-2">
+            <div className="flex flex-wrap gap-3 mb-2 text-xs">
               <span className="inline-flex items-center px-2 py-1 rounded-md bg-gray-800 text-white">
                 <span className="mr-2 text-purple-500">◆</span> Next.js
               </span>
               <span className="inline-flex items-center px-2 py-1 rounded-md bg-gray-800 text-white">
-                <span className="mr-2 text-blue-400">◆</span> Prisma
+                <span className="mr-2 text-blue-400">◆</span>Milvus
               </span>
               <span className="inline-flex items-center px-2 py-1 rounded-md bg-gray-800 text-white">
                 <span className="mr-2 text-yellow-400">◆</span> Langchain
@@ -108,9 +108,9 @@ export default function HeroSection() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.8 }}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-green-900/80 backdrop-blur-sm mb-6 border border-green-700"
+            className="inline-flex items-center px-4 py-1 rounded-full bg-green-900/80 backdrop-blur-sm mb-6 border border-green-700"
           >
-            <span className="w-3 h-3 bg-green-400 rounded-full mr-3 animate-pulse" />
+            <span className="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse" />
             <span className="font-medium text-white">Contact</span>
           </motion.div>
 

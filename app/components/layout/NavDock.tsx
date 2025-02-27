@@ -20,10 +20,7 @@ const menuItems: MenuItem[] = [
     name: "Blog",
     href: "/blog",
   },
-  {
-    name: "Work",
-    href: "/work",
-  },
+
   {
     name: "About",
     href: "/about",
