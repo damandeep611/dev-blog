@@ -23,7 +23,7 @@ function HeroPost({
   slug: string;
 }) {
   return (
-    <section className="w-full max-w-4xl mb-16 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200">
+    <section className="w-full max-w-4xl mb-16  rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200">
       <div className="flex flex-col lg:flex-row overflow-hidden">
         <div className="lg:w-1/2">
           <div className="h-full">
@@ -32,7 +32,7 @@ function HeroPost({
         </div>
         <div className="p-6 lg:w-1/2 flex flex-col justify-between">
           <div>
-            <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-gray-900">
+            <h3 className="text-2xl lg:text-3xl font-bold mb-4 ">
               <Link
                 href={`/posts/${slug}`}
                 className="hover:text-indigo-600 transition-colors duration-200"
@@ -40,9 +40,7 @@ function HeroPost({
                 {title}
               </Link>
             </h3>
-            <p className="text-gray-700 text-base lg:text-lg mb-4 line-clamp-3">
-              {excerpt}
-            </p>
+            <p className=" text-base lg:text-lg mb-4 line-clamp-3">{excerpt}</p>
           </div>
           <div className="mt-4">
             <div className="flex items-center justify-between">
@@ -50,9 +48,7 @@ function HeroPost({
                 {author && (
                   <Avatar name={author.name} picture={author.picture} />
                 )}
-                <span className="ml-2 text-sm text-gray-600">
-                  {author.name}
-                </span>
+                <span className="ml-2 text-sm ">{author.name}</span>
               </div>
               <div className="text-sm text-gray-500">
                 <DateComponent dateString={date} />
@@ -72,11 +68,11 @@ export default async function Page() {
   const morePosts = allPosts.slice(1);
 
   return (
-    <div className="bg-gray-50 min-h-screen py-12">
+    <div className="  min-h-screen py-12">
       <div className="container mx-auto px-4">
         <header className="mb-12 text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Blogger</h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h1 className="text-4xl font-bold  mb-4">Blogger</h1>
+          <p className=" max-w-2xl mx-auto">
             Discover interesting articles and stay updated with the latest news
           </p>
         </header>
@@ -93,7 +89,7 @@ export default async function Page() {
             />
           )}
 
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 self-start pl-4">
+          <h2 className="text-2xl font-bold  mb-8 self-start pl-4">
             Latest Posts
           </h2>
 

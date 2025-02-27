@@ -70,7 +70,7 @@ export default function HeroSection() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="mb-12 text-center md:text-left"
         >
-          <p className="text-gray-900 text-xl mb-8 leading-relaxed">
+          <p className=" text-xl mb-8 leading-relaxed">
             I'm Daman, a self-taught developer from India who creates web apps
             and occasionally indie games.
           </p>

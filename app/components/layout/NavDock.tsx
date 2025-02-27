@@ -84,6 +84,7 @@ export default function NavDock() {
               </Link>
             );
           })}
+          <ThemeSwitcher />
         </nav>
       </div>
     </header>
