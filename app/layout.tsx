@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 
 import Footer from "./components/layout/Footer";
 import NavDock from "./components/layout/NavDock";
+import { ThemeProvider } from "./components/layout/ThemeProvider";
 
 export const metadata = {
   title: `devdaman`,
@@ -15,8 +16,6 @@ const inter = Inter({
   display: "swap",
 });
 
-
-
 export default function RootLayout({
   children,
 }: {
@@ -24,9 +23,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="">
-        <NavDock />
-        <main className="py-20 overflow-hidden">{children}</main>
+      <body className="max-w-[1160px] mx-auto">
+        <ThemeProvider defaultTheme="system" storageKey="theme">
+          <NavDock />
+          <main className="py-20 overflow-hidden">{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );

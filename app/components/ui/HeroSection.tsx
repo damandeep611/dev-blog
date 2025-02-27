@@ -1,108 +1,148 @@
 "use client";
 
+import Image from "next/image";
+import { motion } from "framer-motion";
+import pfp from "../../../public/images/pfpmain.jpeg";
+import { BsGithub, BsMailbox, BsTwitterX, BsYoutube } from "react-icons/bs";
+import React from "react";
+import SocialButton from "./SocialButton";
+import { IntroHeadingAni } from "./IntroHeadingAni";
 
 export default function HeroSection() {
   return (
-    <section className="min-h-screen ">
-      <div className="flex flex-col md:flex-row  px-4 items-center">
-        {/* left info col */}
-        <div className="flex-1 h-full">
-          <div className="my-8 ">
-            <h1 className="text-[80px] font-light">I'm daman</h1>
-            <span className="text-lg font-semibold">
-              I design and develop products with purpose and details
-            </span>
-          </div>
-          <div className=" p-12  bg-black rounded-lg">
-            <h1 className="text-white text-6xl font-bold max-w-2xl">
-              developer & creative designer
-            </h1>
-          </div>
-        </div>
-        {/* right project column  */}
-        <div className="w-[400px] flex flex-col items-center justify-between gap-2  px-4">
-          {/* Stats Circle */}
-          <div className="aspect-square ">
-            <div className="bg-black rounded-full w-full h-full flex flex-col items-center justify-center text-white p-8">
-              <h2 className="text-5xl md:text-6xl font-bold mb-2">
-                UI Library
-              </h2>
-              <p className="text-center text-gray-300 text-base md:text-lg">
-                Animations filled React Tailwind and framer motion UI library
-              </p>
-            </div>
-          </div>
-          <div className="aspect-square">
-            <div className="bg-[#6C5CE7] rounded-3xl w-full h-full p-8 flex flex-col">
-              <div className="flex-1 flex flex-col items-center justify-center">
-                <div className="w-16 md:w-20 h-16 md:h-20 mb-8 relative">
-                  <div className="absolute inset-0 bg-white/20 rounded-full blur-xl" />
-                  <div className="relative w-full h-full bg-white/90 rounded-full flex items-center justify-center">
-                    <GlobeIcon />
-                  </div>
-                </div>
-                <h3 className="text-white text-2xl md:text-3xl font-semibold text-center leading-tight">
-                  How to make local Ai Agent to assit in Coding
-                </h3>
-              </div>
-              <div className="flex justify-between items-center mt-4">
-                <div className="flex gap-2">
-                  {[...Array(5)].map((_, i) => (
-                    <div
-                      key={i}
-                      className={`w-8 h-1 rounded-full ${
-                        i === 4 ? "bg-white" : "bg-white/30"
-                      }`}
-                    />
-                  ))}
-                </div>
-                <button
-                  className="w-10 h-10 rounded-full bg-black flex items-center justify-center text-white hover:bg-gray-900 transition-colors"
-                  aria-label="Learn more"
-                >
-                  <ArrowIcon />
-                </button>
-              </div>
-            </div>
+    <section className=" flex flex-col items-center justify-center py-2 px-6 ">
+      <div className="w-full max-w-4xl mx-auto">
+        {/* Profile Header */}
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-2 mb-8">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="relative w-14 h-14 rounded-full overflow-hidden  border-gray-700 shadow-lg"
+          >
+            <Image
+              src={pfp}
+              alt="Profile picture"
+              fill
+              className="object-cover"
+              priority
+            />
+          </motion.div>
+          <div className="text-center md:text-left">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-xl md:text-xl font-bold "
+            >
+              Daman
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className=" text-sm"
+            >
+              @AqDaman
+            </motion.p>
           </div>
         </div>
+
+        {/* Animated Intro */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mb-8 flex justify-center md:justify-start"
+        >
+          <div className="relative overflow-hidden">
+            <IntroHeadingAni
+              text="I Build"
+              rotatingWords={["Web apps", "Websites", "AI Agents"]}
+            />
+          </div>
+        </motion.div>
+
+        {/* Bio Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="mb-12 text-center md:text-left"
+        >
+          <p className="text-gray-900 text-xl mb-8 leading-relaxed">
+            I'm Daman, a self-taught developer from India who creates web apps
+            and occasionally indie games.
+          </p>
+
+          <div className="bg-gray-200/50 rounded-xl p-6 backdrop-blur-sm border border-gray-700">
+            <h2 className="text-xl font-semibold mb-4 text-blue-950">
+              Currently Working On
+            </h2>
+            <p className="text-gray-900 mb-4">
+              A Local AI Agent to work as a Research Assistant with locally
+              installed LLM with:
+            </p>
+            <div className="flex flex-wrap gap-3 mb-2">
+              <span className="inline-flex items-center px-2 py-1 rounded-md bg-gray-800 text-white">
+                <span className="mr-2 text-purple-500">◆</span> Next.js
+              </span>
+              <span className="inline-flex items-center px-2 py-1 rounded-md bg-gray-800 text-white">
+                <span className="mr-2 text-blue-400">◆</span> Prisma
+              </span>
+              <span className="inline-flex items-center px-2 py-1 rounded-md bg-gray-800 text-white">
+                <span className="mr-2 text-yellow-400">◆</span> Langchain
+              </span>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Contact Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+          className="flex flex-col items-center md:items-start"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.8 }}
+            className="inline-flex items-center px-4 py-2 rounded-full bg-green-900/80 backdrop-blur-sm mb-6 border border-green-700"
+          >
+            <span className="w-3 h-3 bg-green-400 rounded-full mr-3 animate-pulse" />
+            <span className="font-medium text-white">Contact</span>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.9 }}
+            className="flex gap-4"
+          >
+            <SocialButton
+              icon={<BsTwitterX size={20} />}
+              href="https://twitter.com/AqDaman"
+              ariaLabel="x"
+            />
+            <SocialButton
+              icon={<BsGithub size={20} />}
+              href="https://github.com/damandeep611"
+              ariaLabel="Github"
+            />
+            <SocialButton
+              icon={<BsYoutube size={20} />}
+              href="https://youtube.com/@damandeep611"
+              ariaLabel="Youtube"
+            />
+            <SocialButton
+              icon={<BsMailbox size={20} />}
+              href="mailto:contact@daman.dev"
+              ariaLabel="Email"
+            />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
-  );
-}
-
-function GlobeIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      className="w-12 h-12 text-[#6C5CE7]"
-      strokeWidth={1.5}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
-      />
-    </svg>
-  );
-}
-
-function ArrowIcon() {
-  return (
-    <svg
-      className="w-6 h-6"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M9 5l7 7-7 7"
-      />
-    </svg>
   );
 }

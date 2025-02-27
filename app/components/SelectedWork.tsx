@@ -23,7 +23,7 @@ const selectedWorks = [
 
 export default function SelectedWork() {
   return (
-    <section className="w-full mx-auto max-w-[1160px] px-10">
+    <section className="w-full mx-auto  px-10">
       <div className="mt-16 ">
         <p className="text-lg text-center uppercase">Selected work</p>
         {/* project cards */}

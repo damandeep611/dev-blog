@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ThemeSwitcher } from "./ThemeSwitcher";
 
 interface MenuItem {
   name: string;
@@ -34,15 +35,8 @@ export default function NavDock() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed z-50 py-4">
-      <div className="flex items-center justify-between px-10">
-        <div className="mr-6 hidden md:flex bg-white rounded-xl ">
-          <span className="text-6xl flex items-center">D</span>
-          <span className="text-xl flex items-center font-extralight leading-[1]">
-            ev <br />
-            aman
-          </span>
-        </div>
+    <header className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50">
+      <div className="flex items-center justify-between ">
         <nav className=" bg-[#ffffff80] h-[58px] backdrop-blur-lg border border-gray-300/50 shadow-md backdrop-saturate-200 text-black rounded-full p-1 flex items-center gap-1 ">
           {menuItems.map((item, index) => {
             const isActive = pathname === item.href;
