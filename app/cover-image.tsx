@@ -18,19 +18,23 @@ export default function CoverImage({
     <ContentfulImage
       alt={`Cover Image for ${title}`}
       priority
-      width={200}
-      height={200}
-      className={cn("shadow-small rounded-md", {
-        "hover:shadow-medium transition-shadow duration-200 ": slug,
+      width={2000}
+      height={1000}
+      className={cn("w-full h-full object-cover transition-all duration-500", {
+        "hover:scale-105 transform": slug,
       })}
       src={url}
     />
   );
 
   return (
-    <div className="sm:mx-0">
+    <div className="w-full h-full">
       {slug ? (
-        <Link href={`/posts/${slug}`} aria-label={title}>
+        <Link
+          href={`/posts/${slug}`}
+          aria-label={title}
+          className="block w-full h-full"
+        >
           {image}
         </Link>
       ) : (

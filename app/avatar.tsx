@@ -9,16 +9,15 @@ export default function Avatar({
 }) {
   return (
     <div className="flex items-center">
-      <div className="mr-2 w-12 h-12">
+      <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-indigo-100 dark:ring-indigo-900">
         <ContentfulImage
           alt={name}
-          className="object-cover h-full rounded-full"
-          height={48}
-          width={48}
+          className="object-cover h-full w-full"
+          height={32}
+          width={32}
           src={picture.url}
         />
       </div>
-      <div className="text-sm font-semibold">{name}</div>
     </div>
   );
 }
