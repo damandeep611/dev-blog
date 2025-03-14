@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="max-w-[1160px] mx-auto">
+      <body className="max-w-[1350px] mx-auto">
         <ThemeProvider defaultTheme="system" storageKey="theme">
           <NavDock />
           <main className="py-20 overflow-hidden">{children}</main>
