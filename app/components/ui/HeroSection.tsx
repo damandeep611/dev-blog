@@ -3,9 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import pfp from "../../../public/images/pfpmain.jpeg";
-import { BsGithub, BsMailbox, BsTwitterX, BsYoutube } from "react-icons/bs";
 import React from "react";
-import SocialButton from "./SocialButton";
 import { IntroHeadingAni } from "./IntroHeadingAni";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -57,6 +55,9 @@ export default function HeroSection() {
     { name: "LinkedIn", url: "https://linkedin.com" },
     { name: "Youtube", url: "https://youtube.com" },
   ];
+
+  //heading letter for animation
+  const devLetter = "Developer".split("");
   return (
     <section className=" flex flex-col items-center justify-center py-2 px-6 ">
       <div className="w-full  mx-auto">
@@ -123,7 +124,7 @@ export default function HeroSection() {
                 animate="visible"
                 variants={textReveal}
               >
-                Crafting products grounded in insights.
+                Crafting products with Ai experience.
               </motion.p>
               <motion.p
                 custom={3}
@@ -174,18 +175,20 @@ export default function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Bio Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="mb-12 text-center md:text-left"
-        >
-          <p className=" text-xl mb-8 leading-relaxed">
-            I'm Daman, a self-taught developer from India who creates web apps
-            and occasionally indie games.
-          </p>
-        </motion.div>
+        <div className="mt-12 sm:mt-20 md:mt-32 flex flex-wrap">
+          {devLetter.map((letter, index) => (
+            <motion.span
+              key={index}
+              custom={index}
+              initial="hidden"
+              animate="visible"
+              variants={letterVariants}
+              className="text-6xl sm:text-8xl md:text-9xl lg:text-[12rem] font-bold tracking-tighter"
+            >
+              {letter}
+            </motion.span>
+          ))}
+        </div>
       </div>
     </section>
   );

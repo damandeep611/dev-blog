@@ -57,18 +57,18 @@ export function IntroHeadingAni({
           ref={ref}
           variants={pullupVariant}
           initial="initial"
-          animate={isInView ? 'animate' : ''}
+          animate={isInView ? "animate" : ""}
           custom={i}
           className={cn(
-            'text-3xl text-center sm:text-4xl font-bold tracking-tighter md:text-6xl md:leading-[4rem]',
-            'pr-2', // class to separate words
+            "text-3xl text-center sm:text-2xl font-bold tracking-tighter md:text-3xl md:leading-[4rem]",
+            "pr-2", // class to separate words
             className
           )}
         >
-          {word === '' ? <span>&nbsp;</span> : word}
+          {word === "" ? <span>&nbsp;</span> : word}
         </motion.div>
       ))}
-      
+
       {/* Container for rotating word */}
       <div className="h-[4rem] overflow-hidden relative flex items-center">
         <AnimatePresence mode="wait">
@@ -82,7 +82,7 @@ export function IntroHeadingAni({
               opacity: { duration: 0.2 },
             }}
             className={cn(
-              'text-xl text-center sm:text-4xl font-bold tracking-tighter md:text-6xl md:leading-[4rem]',
+              "text-xl text-center sm:text-2xl font-bold tracking-tighter md:text-3xl md:leading-[4rem]",
               className
             )}
           >
