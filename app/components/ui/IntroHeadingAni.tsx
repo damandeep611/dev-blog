@@ -49,7 +49,7 @@ export function IntroHeadingAni({
   };
 
   return (
-    <div className="flex flex-wrap justify-center items-center">
+    <div className="flex flex-wrap justify-start items-center">
       {/* Animate main text words */}
       {mainWords.map((word, i) => (
         <motion.div

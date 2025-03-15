@@ -7,6 +7,7 @@ import React from "react";
 import { IntroHeadingAni } from "./IntroHeadingAni";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { ThemeSwitcher } from "../layout/ThemeSwitcher";
 
 export default function HeroSection() {
   // Animation variants for text reveal
@@ -96,67 +97,32 @@ export default function HeroSection() {
                 @devDaman
               </motion.p>
             </div>
+            <ThemeSwitcher />
           </div>
           {/* info in hero header and navigation */}
-          <div className="flex text-sm  items-start justify-between gap-8 ">
-            {/* Introduction text */}
-            <div className="max-w-md ">
-              <motion.p
-                custom={0}
-                initial="hidden"
-                animate="visible"
-                variants={textReveal}
-              >
-                Hey! I'm Daman deep.
-              </motion.p>
-              <motion.p
-                custom={1}
-                initial="hidden"
-                animate="visible"
-                variants={textReveal}
-                className="mb-5"
-              >
-                I specialize in web applications.
-              </motion.p>
-              <motion.p
-                custom={2}
-                initial="hidden"
-                animate="visible"
-                variants={textReveal}
-              >
-                Crafting products with Ai experience.
-              </motion.p>
-              <motion.p
-                custom={3}
-                initial="hidden"
-                animate="visible"
-                variants={textReveal}
-              >
-                My goal is to design usable & delightful products.
-              </motion.p>
-            </div>
 
-            {/* Right section - Social links */}
-            <div className="flex flex-col items-start md:items-end justify-center gap-4">
-              {socialLinks.map((link) => (
-                <motion.div
-                  key={link.name}
-                  className="overflow-hidden"
-                  whileHover={{ x: 5 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          {/* Introduction text */}
+
+          {/* Right section - Social links */}
+          <div className="flex flex-col items-start md:items-end justify-center gap-4">
+            {socialLinks.map((link) => (
+              <motion.div
+                key={link.name}
+                className="overflow-hidden"
+                whileHover={{ x: 5 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                <Link
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm  hover:text-gray-300 transition-colors"
                 >
-                  <Link
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm  hover:text-gray-300 transition-colors"
-                  >
-                    {link.name}
-                    <ArrowUpRight className="w-5 h-5" />
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
+                  {link.name}
+                  <ArrowUpRight className="w-5 h-5" />
+                </Link>
+              </motion.div>
+            ))}
           </div>
         </header>
 
@@ -165,17 +131,52 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mb-8 flex justify-center md:justify-start"
+          className="mb-8 flex justify-start"
         >
           <div className="relative overflow-hidden">
             <IntroHeadingAni
               text="I Build"
-              rotatingWords={["Web apps", "Websites", "AI Agents"]}
+              rotatingWords={["Web apps", "Mobile Applications", "AI Agents"]}
             />
           </div>
         </motion.div>
+        <div className="max-w-md ">
+          <motion.p
+            custom={0}
+            initial="hidden"
+            animate="visible"
+            variants={textReveal}
+          >
+            Hey! I'm Daman deep.
+          </motion.p>
+          <motion.p
+            custom={1}
+            initial="hidden"
+            animate="visible"
+            variants={textReveal}
+            className="mb-5"
+          >
+            I specialize in web applications.
+          </motion.p>
+          <motion.p
+            custom={2}
+            initial="hidden"
+            animate="visible"
+            variants={textReveal}
+          >
+            Crafting products with Ai experience.
+          </motion.p>
+          <motion.p
+            custom={3}
+            initial="hidden"
+            animate="visible"
+            variants={textReveal}
+          >
+            My goal is to design usable & delightful products.
+          </motion.p>
+        </div>
 
-        <div className="mt-12 sm:mt-20 md:mt-32 flex flex-wrap">
+        <div className="mt-6 sm:mt-8 md:mt-10 flex flex-wrap">
           {devLetter.map((letter, index) => (
             <motion.span
               key={index}
@@ -183,7 +184,7 @@ export default function HeroSection() {
               initial="hidden"
               animate="visible"
               variants={letterVariants}
-              className="text-6xl sm:text-8xl md:text-9xl lg:text-[12rem] font-bold tracking-tighter"
+              className="text-8xl sm:text-8xl md:text-9xl lg:text-[12rem] font-bold tracking-tighter"
             >
               {letter}
             </motion.span>

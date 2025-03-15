@@ -4,19 +4,19 @@ import { BACKEND_TECH, FRONTEND_TECH, stacksProps } from "@/app/constants/skills
 import Marquee from "react-fast-marquee"
 
 const SkillsMarquee = ()=> {
-  return(
+  return (
     <section aria-label="tech-stacks" className="my-4">
-      <h2 className="text-2xl font-semibold my-6">Tech Stack I've Used</h2>
+      <h2 className="text-md font-semibold my-6">Tech Stack I've Used</h2>
       <div className="w-full space-y-6">
         <Marquee autoFill pauseOnHover speed={20}>
-          <SkillsList stacks={FRONTEND_TECH}/>
+          <SkillsList stacks={FRONTEND_TECH} />
         </Marquee>
         <Marquee autoFill pauseOnHover direction="right" speed={20}>
-          <SkillsList stacks={BACKEND_TECH}/>
+          <SkillsList stacks={BACKEND_TECH} />
         </Marquee>
       </div>
     </section>
-  )
+  );
 }
 
 export default SkillsMarquee;

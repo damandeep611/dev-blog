@@ -16,6 +16,7 @@ export default function DockSwipe() {
 
   // motion values for drag interactions
   const x = useMotionValue(0);
+  const dragX = useMotionValue(0);
 
   // to transform the x motino value to opacity for side nav labels
   const leftLabelOpacity = useTransform(x, [-50, -20, 0], [1, 0.8, 0]);
@@ -27,8 +28,18 @@ export default function DockSwipe() {
     [-100, -50, 0, 50, 100],
     [0.8, 0.9, 1, 0.9, 0.8]
   );
+
+  // adding visual progress indicator
+  const progressRadius = useTransform(
+    x,
+    [-100, -50, 0, 50, 100],
+    [100, 50, 0, 50, 100]
+  );
+
+  // state variables
   const [isDragging, setIsDragging] = useState(false);
   const [showonMobile, setShowOnMobile] = useState(false);
+  const [thresholdCrossed, setThresholdCrossed] = useState(false);
 
   //check to see on mobile screen
   useEffect(() => {
@@ -54,6 +65,22 @@ export default function DockSwipe() {
     }
     //reset position
     x.set(0);
+  };
+
+  // handle drag motion
+  const handleDrag = (_: any, info: any) => {
+    dragX.set(info.offset.x);
+
+    // Threshold feedback
+    if (Math.abs(info.offset.x) > 45 && !thresholdCrossed) {
+      setThresholdCrossed(true);
+      // Vibrate if supported
+      if (navigator.vibrate) {
+        navigator.vibrate(10);
+      }
+    } else if (Math.abs(info.offset.x) <= 45) {
+      setThresholdCrossed(false);
+    }
   };
 
   // handle click for non - home pages
@@ -86,6 +113,7 @@ export default function DockSwipe() {
           drag={isHomePage ? "x" : false}
           dragConstraints={{ left: 0, right: 0 }}
           style={{ x, scale }}
+          onDrag={handleDrag}
           onDragStart={() => setIsDragging(true)}
           onDragEnd={handleDragEnd}
           onClick={handleClick}
@@ -108,7 +136,11 @@ export default function DockSwipe() {
             <>
               <Home className="w-6 h-6" />
               <motion.div
-                className="absolute inset-0 rounded-full border-4 border-gray-500"
+                className="absolute inset-0 rounded-full border-2 border-gray-500"
+                style={{
+                  clipPath: `circle(${progressRadius}% at center)`,
+                  opacity: 0.5,
+                }}
                 animate={{ scale: [1, 1.1, 1], opacity: [0.7, 0.3, 0.7] }}
                 transition={{
                   duration: 2,
