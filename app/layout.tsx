@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import Footer from "./components/layout/Footer";
 import NavDock from "./components/layout/NavDock";
 import { ThemeProvider } from "./components/layout/ThemeProvider";
+import DockSwipe from "./components/layout/DockSwipe";
 
 export const metadata = {
   title: `devdaman`,
@@ -25,7 +26,7 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body className="max-w-[1350px] mx-auto">
         <ThemeProvider defaultTheme="system" storageKey="theme">
-          <NavDock />
+          <DockSwipe />
           <main className="py-20 overflow-hidden">{children}</main>
         </ThemeProvider>
       </body>
