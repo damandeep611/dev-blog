@@ -23,7 +23,7 @@ function HeroPost({
   slug: string;
 }) {
   return (
-    <section className="w-full max-w-6xl mb-12 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 bg-white dark:bg-gray-800">
+    <section className="w-full max-h-[400px] border mb-12 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
       <div className="flex flex-col lg:flex-row">
         <div className="lg:w-1/2 relative overflow-hidden">
           <div className="h-64 sm:h-80 lg:h-full transform hover:scale-105 transition-transform duration-500">
@@ -35,7 +35,7 @@ function HeroPost({
             <div className="mb-2 text-sm font-medium text-indigo-600 dark:text-indigo-400">
               <DateComponent dateString={date} />
             </div>
-            <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+            <h3 className="text-2xl lg:text-3xl font-bold mb-4">
               <Link
                 href={`/posts/${slug}`}
                 className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200"
@@ -43,16 +43,14 @@ function HeroPost({
                 {title}
               </Link>
             </h3>
-            <p className="text-base lg:text-lg mb-6 text-gray-600 dark:text-gray-300 line-clamp-3">
-              {excerpt}
-            </p>
+            <p className="text-base lg:text-lg mb-6  line-clamp-3">{excerpt}</p>
           </div>
-          <div className="mt-4 border-t pt-4 border-gray-100 dark:border-gray-700">
+          <div className="mt-4 border-t pt-4 ">
             <div className="flex items-center">
               {author && (
                 <div className="flex items-center">
                   <Avatar name={author.name} picture={author.picture} />
-                  <span className="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+                  <span className="ml-2 text-sm font-medium">
                     {author.name}
                   </span>
                 </div>
@@ -72,16 +70,16 @@ export default async function Page() {
   const morePosts = allPosts.slice(1);
 
   return (
-    <div className="min-h-screen py-12 bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen py-12">
       <div className="container mx-auto px-4">
         <header className="mb-16 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
-              Blogger
+              Some Blogs
             </span>
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Discover interesting articles and stay updated with the latest news
+            Occassionally written articles related to tech and CS
           </p>
         </header>
 

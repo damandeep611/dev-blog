@@ -64,7 +64,7 @@ export default function HeroSection() {
       <div className="w-full  mx-auto">
         {/* Profile Header */}
         <header className="flex justify-between items-start ">
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-2 mb-8">
+          <div className="flex  items-center md:items-start gap-2 mb-8">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -184,7 +184,7 @@ export default function HeroSection() {
               initial="hidden"
               animate="visible"
               variants={letterVariants}
-              className="text-8xl sm:text-8xl md:text-9xl lg:text-[12rem] font-bold tracking-tighter"
+              className="text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] font-bold tracking-tighter"
             >
               {letter}
             </motion.span>

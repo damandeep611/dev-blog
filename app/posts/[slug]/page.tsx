@@ -34,9 +34,9 @@ export default async function PostPage({
   const readingTime = calculateReadingTime(post.content);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen border border-white ">
       {/* Hero section with cover image */}
-      <div className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden bg-gray-800">
+      <div className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden">
         <div className="absolute inset-0 opacity-80">
           <CoverImage title={post.title} url={post.coverImage.url} />
         </div>
@@ -137,16 +137,16 @@ export default async function PostPage({
           <TableOfContents document={post.content.json} />
 
           {/* Main content */}
-          <article className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 md:p-10 mb-12">
+          <article className=" rounded-lg shadow-lg p-6 md:p-10 mb-12">
             <div
-              className="prose prose-lg md:prose-xl max-w-none text-gray-800 dark:text-gray-200 
-                         prose-headings:text-gray-900 dark:prose-headings:text-white
+              className="prose prose-lg md:prose-xl max-w-none  dark:text-gray-300 
+                          dark:prose-headings:text-white
                          prose-headings:font-bold prose-headings:mt-8 prose-headings:mb-4
                          prose-a:text-indigo-600 dark:prose-a:text-indigo-400 
                          prose-a:no-underline hover:prose-a:underline
                          prose-img:rounded-lg prose-img:shadow-md
                          prose-p:leading-relaxed prose-p:mb-6
-                         prose-li:mb-2"
+                         prose-li:mb-2  "
             >
               <Markdown content={post.content} />
             </div>

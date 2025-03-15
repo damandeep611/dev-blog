@@ -16,23 +16,23 @@ interface AnimatedTextProps {
 }
 export function IntroHeadingAni({
   text,
-  rotatingWords = ["Apps", "Websites", "Ai Tools"],
+  rotatingWords = ["Web apps", "Mobile Applications", "AI Agents"],
   animationDelay = 0.1,
   rotationInterval = 3000,
-  className = '',
+  className = "",
 }: AnimatedTextProps) {
   const [index, setIndex] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  
+
   // Split the main text into words
-  const mainWords = text.split(' ');
-  
+  const mainWords = text.split(" ");
+
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % rotatingWords.length);
     }, rotationInterval);
-    
+
     // Clean up interval on unmount
     return () => clearInterval(interval);
   }, [rotatingWords.length, rotationInterval]);
@@ -60,7 +60,7 @@ export function IntroHeadingAni({
           animate={isInView ? "animate" : ""}
           custom={i}
           className={cn(
-            "text-3xl text-center sm:text-2xl font-bold tracking-tighter md:text-3xl md:leading-[4rem]",
+            "text-xl text-center sm:text-2xl font-bold tracking-tighter md:text-3xl md:leading-[4rem]",
             "pr-2", // class to separate words
             className
           )}
@@ -70,7 +70,7 @@ export function IntroHeadingAni({
       ))}
 
       {/* Container for rotating word */}
-      <div className="h-[4rem] overflow-hidden relative flex items-center">
+      <div className="h-[4rem] overflow-hidden relative flex items-center justify-center">
         <AnimatePresence mode="wait">
           <motion.div
             key={index}
@@ -82,7 +82,7 @@ export function IntroHeadingAni({
               opacity: { duration: 0.2 },
             }}
             className={cn(
-              "text-xl text-center sm:text-2xl font-bold tracking-tighter md:text-3xl md:leading-[4rem]",
+              "text-2xl text-center sm:text-3xl font-bold tracking-tighter md:text-4xl md:leading-[4rem]",
               className
             )}
           >
