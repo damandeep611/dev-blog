@@ -52,15 +52,14 @@ export default function HeroSection() {
 
   const socialLinks = [
     { name: "X", url: "https://twitter.com" },
-    { name: "Github", url: "https://github.com" },
-    { name: "LinkedIn", url: "https://linkedin.com" },
-    { name: "Youtube", url: "https://youtube.com" },
+    { name: "Github", url: "https://github.com/damandeep611" },
+    { name: "Youtube", url: "#" },
   ];
 
   //heading letter for animation
   const devLetter = "Developer".split("");
   return (
-    <section className=" flex flex-col items-center justify-center py-2 px-6 ">
+    <section className=" flex flex-col items-center justify-center py-2 px-4 ">
       <div className="w-full  mx-auto">
         {/* Profile Header */}
         <header className="flex justify-between items-start ">
@@ -94,14 +93,11 @@ export default function HeroSection() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className=" text-sm"
               >
-                @devDaman
+                @devdaman
               </motion.p>
             </div>
             <ThemeSwitcher />
           </div>
-          {/* info in hero header and navigation */}
-
-          {/* Introduction text */}
 
           {/* Right section - Social links */}
           <div className="flex flex-col items-start md:items-end justify-center gap-4">
@@ -116,7 +112,7 @@ export default function HeroSection() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm  hover:text-gray-300 transition-colors"
+                  className="flex items-center  gap-2 text-sm  hover:text-gray-300 transition-colors"
                 >
                   {link.name}
                   <ArrowUpRight className="w-5 h-5" />
@@ -126,45 +122,36 @@ export default function HeroSection() {
           </div>
         </header>
 
-        {/* Animated Intro */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mb-8 flex justify-start"
-        >
-          <div className="relative overflow-hidden">
-            <IntroHeadingAni
-              text="I Build"
-              rotatingWords={["Web apps", "Mobile Applications", "AI Agents"]}
-            />
-          </div>
-        </motion.div>
-        <div className="max-w-md ">
+        <div className="max-w-md text-md font-thin ">
           <motion.p
             custom={0}
             initial="hidden"
             animate="visible"
             variants={textReveal}
           >
-            Hey! I'm Daman deep.
+            Full stack Dev
           </motion.p>
-          <motion.p
-            custom={1}
-            initial="hidden"
-            animate="visible"
-            variants={textReveal}
-            className="mb-5"
+          {/* Animated Intro */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mb-8 flex justify-start"
           >
-            I specialize in web applications.
-          </motion.p>
+            <div className="relative overflow-hidden">
+              <IntroHeadingAni
+                text="I Build"
+                rotatingWords={["React applications", "AI Agents"]}
+              />
+            </div>
+          </motion.div>
           <motion.p
             custom={2}
             initial="hidden"
             animate="visible"
             variants={textReveal}
           >
-            Crafting products with Ai experience.
+            Tweaking products with AI, light and focused.
           </motion.p>
           <motion.p
             custom={3}
@@ -172,7 +159,8 @@ export default function HeroSection() {
             animate="visible"
             variants={textReveal}
           >
-            My goal is to design usable & delightful products.
+            I Try to Build products that don’t overcomplicate things—usable,
+            practical, done right.
           </motion.p>
         </div>
 
@@ -184,7 +172,7 @@ export default function HeroSection() {
               initial="hidden"
               animate="visible"
               variants={letterVariants}
-              className="text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] font-bold tracking-tighter"
+              className="text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] font-bold "
             >
               {letter}
             </motion.span>
