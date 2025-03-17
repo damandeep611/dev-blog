@@ -12,22 +12,43 @@ export default function ContactCard({ onClose }: ContactCardProps) {
   const [isSending, setIsSending] = useState(false);
   const [isSent, setIsSent] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSending(true);
 
-    //simulate sending
-    setTimeout(() => {
-      setIsSending(false);
-      setIsSent(true);
+    // form data for submission
+    const formData = new FormData();
+    formData.append("email", email);
+    formData.append("message", message);
+    formData.append("_captcha", "false");
 
-      //reset form after showing success
-      setTimeout(() => {
-        setEmail("");
-        setMessage("");
-        setIsSent(false);
-      }, 2000);
-    }, 1500);
+    try {
+      //submitting the form data
+      const response = await fetch(
+        "https://formsubmit.co/c08a7132a9fbe0b84c04615148f3a364",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      if (response.ok) {
+        setIsSending(false);
+        setIsSent(true);
+
+        //reset form after successful submit
+        setTimeout(() => {
+          setEmail("");
+          setMessage("");
+          setIsSent(false);
+        }, 2000);
+      } else {
+        console.error("form submission failed");
+        setIsSending(false);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setIsSending(false);
+    }
   };
 
   return (
@@ -74,6 +95,7 @@ export default function ContactCard({ onClose }: ContactCardProps) {
                 Email
               </label>
               <input
+                name="email"
                 type="email"
                 id="email"
                 value={email}
@@ -83,6 +105,7 @@ export default function ContactCard({ onClose }: ContactCardProps) {
                 required
               />
             </div>
+
             {/* form message */}
             <div>
               <label
@@ -100,6 +123,8 @@ export default function ContactCard({ onClose }: ContactCardProps) {
                 placeholder="Type your message here ..."
                 required
               />
+              <input type="hidden" name="_next" value="https://devdaman.com" />
+              <input type="hidden" name="_captcha" value="false" />
             </div>
             {/* submit button and action */}
             <motion.button
