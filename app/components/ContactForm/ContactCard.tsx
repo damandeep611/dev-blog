@@ -16,21 +16,18 @@ export default function ContactCard({ onClose }: ContactCardProps) {
     e.preventDefault();
     setIsSending(true);
 
-    // form data for submission
-    const formData = new FormData();
-    formData.append("email", email);
-    formData.append("message", message);
-    formData.append("_captcha", "false");
-
     try {
       //submitting the form data
-      const response = await fetch(
-        "https://formsubmit.co/c08a7132a9fbe0b84c04615148f3a364",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const response = await fetch("/api/telegram-connect", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          message,
+        }),
+      });
       if (response.ok) {
         setIsSending(false);
         setIsSent(true);
