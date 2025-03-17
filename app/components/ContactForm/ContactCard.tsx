@@ -25,7 +25,7 @@ export default function ContactCard({ onClose }: ContactCardProps) {
     try {
       //submitting the form data
       const response = await fetch(
-        "https://formsubmit.co/c08a7132a9fbe0b84c04615148f3a364",
+        "https://formsubmit.co/damandeep611@gmail.com",
         {
           method: "POST",
           body: formData,
