@@ -7,11 +7,9 @@ import { ArrowUpRight } from "lucide-react";
 export default function Footer() {
   const socialLinks = [
     { name: "X", url: "https://twitter.com" },
-    { name: "Behance", url: "https://behance.net" },
+    { name: "Blog", url: "https://instagram.com" },
     { name: "Dribbble", url: "https://dribbble.com" },
-    { name: "Medium", url: "https://medium.com" },
-    { name: "LinkedIn", url: "https://linkedin.com" },
-    { name: "Instagram", url: "https://instagram.com" },
+    { name: "Youtube", url: "https://youtube.com" },
   ];
 
   return (

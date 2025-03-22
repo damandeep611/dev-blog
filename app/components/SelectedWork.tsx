@@ -1,15 +1,15 @@
 const selectedWorks = [
   {
-    title: "Kallista UI",
-    info: "react Tailwind UI library",
+    title: "ReuseMotion",
+    info: "react Tailwind + Animated Components UI library",
   },
   {
-    title: "Tracker ",
-    info: "Habit and skill tracker with time",
+    title: "BuildxSkill ",
+    info: "Habit and skill tracker with Analytics",
   },
   {
-    title: "BuildxPrompt",
-    info: "Text Prompt Marketplace Library ",
+    title: "SynapRecall",
+    info: "AI Powered bookmarking tool to use and store bookmarks effectively ",
   },
   {
     title: "Agentic",
@@ -25,7 +25,9 @@ export default function SelectedWork() {
   return (
     <section className="w-full mx-auto px-4 md:px-16">
       <div className="mt-16 ">
-        <p className="text-lg text-center uppercase">Selected work</p>
+        <p className="font-mono py-8 uppercase">
+          Some Tools and webApps that i've made
+        </p>
         {/* project cards */}
         <div className="flex items-center justify-start">
           <div className="w-full">

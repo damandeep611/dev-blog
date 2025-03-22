@@ -6,7 +6,7 @@ import Marquee from "react-fast-marquee"
 const SkillsMarquee = ()=> {
   return (
     <section aria-label="tech-stacks" className="my-4">
-      <h2 className="text-sm font-thin my-6 mx-2">Tech Stacks I've Used</h2>
+      <h2 className="text-sm font-mono my-6 mx-2">Tech Stacks I've Used</h2>
       <div className="w-full space-y-6">
         <Marquee autoFill pauseOnHover speed={20}>
           <SkillsList stacks={FRONTEND_TECH} />

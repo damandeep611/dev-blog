@@ -122,7 +122,7 @@ export default function HeroSection() {
           </div>
         </header>
 
-        <div className="max-w-md text-md font-thin ">
+        <div className="max-w-md text-md font-mono ">
           <motion.p
             custom={0}
             initial="hidden"
