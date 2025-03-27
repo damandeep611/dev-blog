@@ -28,10 +28,10 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body className="max-w-[1350px] mx-auto">
         <ThemeProvider defaultTheme="system" storageKey="theme">
-          <DockSwipe />
-          <main className="py-20 overflow-hidden">{children}</main>
           <Analytics />
           <SpeedInsights />
+          <DockSwipe />
+          <main className="py-20 overflow-hidden">{children}</main>
         </ThemeProvider>
       </body>
     </html>
