@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 import Footer from "./components/layout/Footer";
 import NavDock from "./components/layout/NavDock";
@@ -28,6 +29,7 @@ export default function RootLayout({
         <ThemeProvider defaultTheme="system" storageKey="theme">
           <DockSwipe />
           <main className="py-20 overflow-hidden">{children}</main>
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
