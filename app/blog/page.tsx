@@ -4,6 +4,7 @@ import { draftMode } from "next/headers";
 import { getAllPosts } from "@/lib/api";
 import TagFilter from "../tag-filter";
 import HeroPost from "../hero-post";
+import { ThemeSwitcher } from "../components/layout/ThemeSwitcher";
 
 export default async function BlogPage({
   searchParams,
@@ -27,11 +28,13 @@ export default async function BlogPage({
   const morePosts = filteredPosts.slice(1);
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-8">Blog</h1>
-
-      {/* Tag Filter */}
-      <TagFilter tags={allTags} selectedTag={searchParams.tag} />
+    <div className="container mx-auto lg:px-4 py-8">
+      <h1 className="text-4xl font-bold mb-8 flex items-center justify-between gap-2">
+        Blog{" "}
+        <span>
+          <ThemeSwitcher />
+        </span>
+      </h1>
 
       {/* Hero Post */}
       {heroPost && (
@@ -47,6 +50,9 @@ export default async function BlogPage({
           />
         </div>
       )}
+
+      {/* Tag Filter */}
+      <TagFilter tags={allTags} selectedTag={searchParams.tag} />
 
       {/* More Posts */}
       {morePosts.length > 0 && (

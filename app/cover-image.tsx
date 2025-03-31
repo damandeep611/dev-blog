@@ -21,7 +21,7 @@ export default function CoverImage({
       width={2000}
       height={1000}
       className={cn("w-full h-full object-cover transition-all duration-500", {
-        "hover:scale-105 transform": slug,
+        " transform": slug,
       })}
       src={url}
     />
