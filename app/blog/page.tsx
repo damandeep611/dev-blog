@@ -38,7 +38,7 @@ export default async function BlogPage({
 
       {/* Hero Post */}
       {heroPost && (
-        <div className="mb-16">
+        <div className="mb-16 m-2">
           <HeroPost
             title={heroPost.title}
             coverImage={heroPost.coverImage}

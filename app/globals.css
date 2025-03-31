@@ -73,3 +73,25 @@
 .dark .prose blockquote {
   @apply text-gray-300 border-gray-500;
 }
+
+
+/* Thin scrollbar for all components */
+::-webkit-scrollbar {
+  width: 4px;  /* Adjust thickness */
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 100, 100, 0.5);  /* Adjust color and transparency */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Firefox support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 100, 100, 0.5) transparent;
+}
