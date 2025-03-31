@@ -67,10 +67,8 @@ export default function TableOfContents({ document }: { document: any }) {
   }
 
   return (
-    <div className="hidden lg:block lg:fixed lg:right-8 lg:top-40 lg:w-64 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-5 max-h-[calc(100vh-200px)] overflow-y-auto">
-      <h3 className="text-lg font-bold mb-3 text-gray-900 dark:text-white">
-        Table of Contents
-      </h3>
+    <div className="hidden border border-red-600 lg:block rounded-lg shadow-lg p-5 max-h-[calc(100vh-200px)] overflow-y-auto">
+      <h3 className="text-lg font-bold mb-3 ">Table of Contents</h3>
       <div className="border-l-2 border-gray-200 dark:border-gray-700 pl-4 space-y-2 text-sm">
         {toc.map((item) => (
           <a
