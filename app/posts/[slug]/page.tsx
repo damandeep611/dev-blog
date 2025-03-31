@@ -103,30 +103,19 @@ export default async function PostPage({
       </header>
 
       <div className="flex flex-col lg:flex-row gap-12">
-        <div className=" mx-auto -mt-16 md:-mt-24 relative ">
-          {/* Table of Contents - Dynamic from content headings */}
-          <div className="hidden lg:block w-64 shrink-0">
-            <div className="">
-              <TableOfContents document={post.content.json} />
-            </div>
+        {/* Table of Contents - Dynamic from content headings */}
+        <div className="hidden lg:block w-64 shrink-0">
+          <div className="">
+            <TableOfContents document={post.content.json} />
           </div>
-
-          {/* Main content */}
-          <article className=" rounded-lg shadow-lg p-6 md:p-10 mb-12">
-            <div
-              className="prose prose-lg md:prose-xl max-w-none  dark:text-gray-300 
-                          dark:prose-headings:text-white
-                         prose-headings:font-bold prose-headings:mt-8 prose-headings:mb-4
-                         prose-a:text-indigo-600 dark:prose-a:text-indigo-400 
-                         prose-a:no-underline hover:prose-a:underline
-                         prose-img:rounded-lg prose-img:shadow-md
-                         prose-p:leading-relaxed prose-p:mb-6
-                         prose-li:mb-2  "
-            >
-              <Markdown content={post.content} />
-            </div>
-          </article>
         </div>
+
+        {/* Main content */}
+        <article className=" flex-1 rounded-lg shadow-lg p-6 md:p-10 mb-12">
+          <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-semibold prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-img:rounded-xl mb-12 ">
+            <Markdown content={post.content} />
+          </div>
+        </article>
       </div>
     </div>
   );
