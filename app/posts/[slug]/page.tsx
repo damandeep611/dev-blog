@@ -6,7 +6,6 @@ import Date from "../../date";
 import CoverImage from "../../cover-image";
 import { Markdown } from "@/lib/markdown";
 import { getAllPosts, getPostAndMorePosts } from "@/lib/api";
-import ContentfulImage from "@/lib/contentful-image";
 import { calculateReadingTime } from "@/lib/reading-time";
 import TableOfContents from "../../table-of-contents";
 import { ThemeSwitcher } from "@/app/components/layout/ThemeSwitcher";
@@ -105,7 +104,7 @@ export default async function PostPage({
       <div className="flex flex-col lg:flex-row gap-12">
         {/* Table of Contents - Dynamic from content headings */}
         <div className="hidden lg:block w-64 shrink-0">
-          <div className="">
+          <div className="sticky top-24">
             <TableOfContents document={post.content.json} />
           </div>
         </div>
