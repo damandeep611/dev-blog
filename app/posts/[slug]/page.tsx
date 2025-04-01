@@ -7,9 +7,10 @@ import CoverImage from "../../cover-image";
 import { Markdown } from "@/lib/markdown";
 import { getAllPosts, getPostAndMorePosts } from "@/lib/api";
 import { calculateReadingTime } from "@/lib/reading-time";
-import TableOfContents from "../../table-of-contents";
 import { ThemeSwitcher } from "@/app/components/layout/ThemeSwitcher";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
+import TableOfContentsClient from "../TableOfContentClient";
+import RichTextArticle from "./RichTextArticle";
 
 export async function generateStaticParams() {
   const allPosts = await getAllPosts(false);
@@ -101,20 +102,20 @@ export default async function PostPage({
         </div>
       </header>
 
-      <div className="flex flex-col lg:flex-row gap-12">
+      <div className="flex flex-col  lg:flex-row gap-12">
         {/* Table of Contents - Dynamic from content headings */}
-        <div className="hidden lg:block w-64 shrink-0">
-          <div className="sticky top-24">
-            <TableOfContents document={post.content.json} />
+        <aside className="hidden lg:block w-64 shrink-0">
+          <div className="pr-4 ">
+            <TableOfContentsClient content={post.content} />
           </div>
-        </div>
+        </aside>
 
         {/* Main content */}
-        <article className=" flex-1 rounded-lg shadow-lg p-6 md:p-10 mb-12">
-          <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-semibold prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-img:rounded-xl mb-12 ">
-            <Markdown content={post.content} />
-          </div>
-        </article>
+        <main className="flex-1 relative">
+          <article className="rounded-lg shadow-lg p-6 md:p-10 mb-12">
+            <RichTextArticle content={post.content} />
+          </article>
+        </main>
       </div>
     </div>
   );
