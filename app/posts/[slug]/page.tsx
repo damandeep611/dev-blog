@@ -10,7 +10,7 @@ import { calculateReadingTime } from "@/lib/reading-time";
 import { ThemeSwitcher } from "@/app/components/layout/ThemeSwitcher";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import TableOfContentsClient from "../TableOfContentClient";
-import RichTextArticle from "./RichTextArticle";
+import RichTextArticle from "../RichTextArticle";
 
 export async function generateStaticParams() {
   const allPosts = await getAllPosts(false);
@@ -36,7 +36,7 @@ export default async function PostPage({
   const readingTime = calculateReadingTime(post.content);
 
   return (
-    <div className="min-h-screen max-w-6xl mx-auto  transition-colors duration-300 ">
+    <div className="min-h-screen  mx-auto  transition-colors duration-300 ">
       <div className="flex items-center justify-between py-2 px-4">
         <Link
           href="/blog"
@@ -102,10 +102,10 @@ export default async function PostPage({
         </div>
       </header>
 
-      <div className="flex flex-col  lg:flex-row gap-12">
+      <div className="flex flex-col  lg:flex-row gap-12 max-w-6xl mx-auto">
         {/* Table of Contents - Dynamic from content headings */}
         <aside className="hidden lg:block w-64 shrink-0">
-          <div className="pr-4 ">
+          <div className="pr-4 sticky top-6 ">
             <TableOfContentsClient content={post.content} />
           </div>
         </aside>

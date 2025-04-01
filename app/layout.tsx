@@ -31,7 +31,7 @@ export default function RootLayout({
           <Analytics />
           <SpeedInsights />
           <DockSwipe />
-          <main className="py-20 overflow-hidden">{children}</main>
+          <main className="py-20 ">{children}</main>
         </ThemeProvider>
       </body>
     </html>

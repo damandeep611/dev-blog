@@ -142,7 +142,10 @@ export default function TableOfContentClient({
   }
 
   return (
-    <div ref={tocRef} className="hidden lg:block rounded-lg shadow-lg">
+    <div
+      ref={tocRef}
+      className="hidden lg:block rounded-lg shadow-lg max-h-[calc(100vh-8rem)] overflow-y-auto"
+    >
       <div className="text-lg font-medium mb-4">Table of Contents</div>
       <nav>
         <ul className="space-y-2 text-sm">
