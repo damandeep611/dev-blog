@@ -62,11 +62,6 @@ export default function Footer() {
           ))}
         </div>
       </div>
-
-      {/* Copyright */}
-      <div className="mt-16">
-        <p className="text-sm">© 2025 devdaman</p>
-      </div>
     </footer>
   );
 }
