@@ -54,13 +54,14 @@ export default function ContactCard({ onClose }: ContactCardProps) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      onClick={onClose}
     >
       <motion.div
         className="relative w-[90%] max-w-md rounded-xl bg-blue-600 text-white p-6 shadow-xl"
         initial={{ scale: 0.9, y: 50 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.9, y: 50 }}
-        onClick={(e) => e.stopPropagation}
+        onClick={(e) => e.stopPropagation()}
       >
         <button
           className="absolute top-3 right-3 p-1 rounded-full hover:bg-blue-700 transition-colors "

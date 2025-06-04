@@ -7,6 +7,7 @@ import Footer from "./components/layout/Footer";
 import NavDock from "./components/layout/NavDock";
 import { ThemeProvider } from "./components/layout/ThemeProvider";
 import DockSwipe from "./components/layout/DockSwipe";
+import NavPill from "./components/layout/NavPill";
 
 export const metadata = {
   title: `devdaman`,
@@ -30,7 +31,7 @@ export default function RootLayout({
         <ThemeProvider defaultTheme="system" storageKey="theme">
           <Analytics />
           <SpeedInsights />
-          <DockSwipe />
+          <NavPill />
           <main className="py-20 ">{children}</main>
         </ThemeProvider>
       </body>
