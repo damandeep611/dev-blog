@@ -30,7 +30,7 @@ export default function HeroPost({
   tags,
 }: HeroPostProps) {
   return (
-    <section className="relative  max-w-6xl mx-auto border rounded-lg border-gray-200 dark:border-gray-500 shadow-md">
+    <section className="relative  max-w-6xl mx-auto  rounded-lg  shadow-md">
       <Link href={`posts/${slug}`}>
         <div className="relative   rounded-lg">
           <div className="md:flex">
