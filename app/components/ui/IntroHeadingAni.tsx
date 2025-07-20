@@ -70,7 +70,7 @@ export function IntroHeadingAni({
       ))}
 
       {/* Container for rotating word */}
-      <div className="h-[4rem] overflow-hidden relative flex items-center justify-center">
+      <div className=" overflow-hidden relative flex items-center justify-center">
         <AnimatePresence mode="wait">
           <motion.div
             key={index}
@@ -82,7 +82,7 @@ export function IntroHeadingAni({
               opacity: { duration: 0.2 },
             }}
             className={cn(
-              "text-2xl text-center sm:text-3xl font-bold tracking-tighter md:text-4xl md:leading-[4rem]",
+              "text-xl text-center sm:text-2xl font-bold tracking-tighter md:text-3xl md:leading-[4rem]",
               className
             )}
           >

@@ -32,7 +32,7 @@ export default function RootLayout({
           <Analytics />
           <SpeedInsights />
           <NavPill />
-          <main className="py-20 ">{children}</main>
+          <main className="py-6 ">{children}</main>
         </ThemeProvider>
       </body>
     </html>

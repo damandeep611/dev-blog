@@ -1,15 +1,21 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
-import pfp from "../../../public/images/pfpmain.jpeg";
-import React from "react";
-import { IntroHeadingAni } from "./IntroHeadingAni";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import { ThemeSwitcher } from "../layout/ThemeSwitcher";
+import React, { useEffect, useState } from "react";
+import Header from "./Header";
 
 export default function HeroSection() {
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+
+  const rotatingTexts = ["Web Design", "AI AGENTS", "Full stack apps"];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTextIndex((prev) => (prev + 1) % rotatingTexts.length);
+    }, 2000); // Change text every 2 seconds
+
+    return () => clearInterval(interval);
+  }, []);
   // Animation variants for text reveal
   const textReveal = {
     hidden: {
@@ -27,158 +33,134 @@ export default function HeroSection() {
     }),
   };
 
-  // Animation for the large KHAGWAL text
-  const letterVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 1.2 + i * 0.1,
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    }),
-  };
-
-  // Hover animation for navigation links
-  const navLinkHover = {
-    rest: { scale: 1 },
-    hover: {
-      scale: 1.05,
-      transition: { duration: 0.3, ease: "easeInOut" },
-    },
-  };
-
-  const socialLinks = [
-    { name: "X", url: "https://twitter.com" },
-    { name: "Github", url: "https://github.com/damandeep611" },
-    { name: "Youtube", url: "#" },
-  ];
-
-  //heading letter for animation
-  const devLetter = "Developer".split("");
   return (
-    <section className=" flex flex-col items-center justify-center py-2 px-4 ">
-      <div className="w-full  mx-auto">
-        {/* Profile Header */}
-        <header className="flex justify-between items-start ">
-          <div className="flex  items-center md:items-start gap-2 mb-8">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="relative w-14 h-14 rounded-full overflow-hidden  border-gray-700 shadow-lg"
-            >
-              <Image
-                src={pfp}
-                alt="Profile picture"
-                fill
-                className="object-cover"
-                priority
-              />
-            </motion.div>
-            <div className="text-center md:text-left">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-xl md:text-xl font-bold "
-              >
-                Daman
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className=" text-sm"
-              >
-                @devdaman
-              </motion.p>
-            </div>
-            <ThemeSwitcher />
-          </div>
-
-          {/* Right section - Social links */}
-          <div className="flex flex-col items-start md:items-end justify-center gap-4">
-            {socialLinks.map((link) => (
-              <motion.div
-                key={link.name}
-                className="overflow-hidden"
-                whileHover={{ x: 5 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <Link
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center  gap-2 text-sm  hover:text-gray-300 transition-colors"
+    <>
+      <section className=" flex flex-col items-center justify-center py-2 px-4 ">
+        <div className="w-full  mx-auto">
+          {/* Profile Header */}
+          <Header />
+          <div className=" w-full text-md py-8  ">
+            <div className=" w-full grid grid-cols-1 md:grid-cols-3 gap-5">
+              {/* column first */}
+              <div className="flex flex-col gap-8">
+                <h2 className="text-2xl text-zinc-400">
+                  Hi there. I'm{" "}
+                  <span className="font-semibold text-zinc-950">daman</span>
+                </h2>
+                <div className=" hidden md:flex flex-col  gap-2">
+                  <p className="text-zinc-400 font-semibold">Socials</p>
+                  <div className="flex flex-col text-sm">
+                    <span>LinkedIn</span>
+                    <span>Instagram</span>
+                    <span>Twitter</span>
+                  </div>
+                </div>
+              </div>
+              {/* column 2nd */}
+              <div className="flex flex-col gap-4">
+                <div>
+                  <motion.div
+                    custom={0}
+                    initial="hidden"
+                    animate="visible"
+                    variants={textReveal}
+                    className="text-2xl  relative "
+                  >
+                    Designer / Developer
+                    <motion.div
+                      className="absolute -top-4 right-32 rotate-12   bg-yellow-400 text-black px-3 py-1 rounded-full text-xs font-bold  overflow-hidden"
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, delay: 0.8 }}
+                    >
+                      <motion.div
+                        key={currentTextIndex}
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: -20, opacity: 0 }}
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                      >
+                        {rotatingTexts[currentTextIndex]}
+                      </motion.div>
+                    </motion.div>
+                  </motion.div>
+                  <span className="text-zinc-400">Based in India</span>
+                </div>
+                <div className="  hidden md:flex flex-col  gap-2">
+                  <p className="text-zinc-400 font-semibold">Skills</p>
+                  <div className="flex flex-col text-sm">
+                    <span>Web Design</span>
+                    <span>Mobile Apps</span>
+                    <span>Twitter</span>
+                  </div>
+                </div>
+              </div>
+              {/* 3rd column */}
+              <div className="text-2xl text-zinc-400">
+                <motion.p
+                  custom={2}
+                  initial="hidden"
+                  animate="visible"
+                  variants={textReveal}
                 >
-                  {link.name}
-                  <ArrowUpRight className="w-5 h-5" />
-                </Link>
-              </motion.div>
-            ))}
+                  Tweaking products with{" "}
+                  <span className="text-zinc-950">AI</span>, light and focused.
+                </motion.p>
+                <motion.p
+                  custom={3}
+                  initial="hidden"
+                  animate="visible"
+                  variants={textReveal}
+                >
+                  I Try to Build products that don’t overcomplicate things
+                  Building{" "}
+                  <span className="text-zinc-950">--usable, practical</span> and
+                  Fast Apps.
+                </motion.p>
+              </div>
+              {/* mobile only column for socials and services links */}
+              <div className="  flex md:hidden items-center justify-between py-4 px-4">
+                <div className=" flex flex-col  gap-2">
+                  <p className="text-zinc-400 font-semibold">Socials</p>
+                  <div className="flex flex-col text-sm">
+                    <span>LinkedIn</span>
+                    <span>Instagram</span>
+                    <span>Twitter</span>
+                  </div>
+                </div>
+                <div className="flex flex-col  gap-2">
+                  <p className="text-zinc-400 font-semibold">Skills</p>
+                  <div className="flex flex-col text-sm">
+                    <span>Web Design</span>
+                    <span>Mobile Apps</span>
+                    <span>Twitter</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </header>
-
-        <div className="max-w-md text-md font-mono ">
-          <motion.p
-            custom={0}
-            initial="hidden"
-            animate="visible"
-            variants={textReveal}
-          >
-            Full stack Dev
-          </motion.p>
-          {/* Animated Intro */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="mb-8 flex justify-start"
-          >
-            <div className="relative overflow-hidden">
-              <IntroHeadingAni
-                text="I Build"
-                rotatingWords={["React applications", "AI Agents"]}
+          {/* Grid Section - Bottom 50% */}
+          <div className="h-[20vh] relative">
+            {/* Grid Pattern */}
+            <div className="absolute inset-0 opacity-20">
+              <div
+                className="w-full h-full"
+                style={{
+                  backgroundImage: `
+                  linear-gradient(${"#CCCCCC"} 1px, transparent 1px),
+                  linear-gradient(90deg, ${"#CCCCCC"} 1px, transparent 1px)
+                `,
+                  backgroundSize: "50px 50px",
+                }}
               />
             </div>
-          </motion.div>
-          <motion.p
-            custom={2}
-            initial="hidden"
-            animate="visible"
-            variants={textReveal}
-          >
-            Tweaking products with AI, light and focused.
-          </motion.p>
-          <motion.p
-            custom={3}
-            initial="hidden"
-            animate="visible"
-            variants={textReveal}
-          >
-            I Try to Build products that don’t overcomplicate things—usable,
-            practical, done right.
-          </motion.p>
+            {/* Left Fade Overlay */}
+            <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r dark:from-black to-transparent z-10"></div>
+            {/* Right Fade Overlay */}
+            <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l dark:from-black to-transparent z-10"></div>
+          </div>
         </div>
-
-        <div className="mt-6 sm:mt-8 md:mt-10 flex flex-wrap">
-          {devLetter.map((letter, index) => (
-            <motion.span
-              key={index}
-              custom={index}
-              initial="hidden"
-              animate="visible"
-              variants={letterVariants}
-              className="text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] font-bold "
-            >
-              {letter}
-            </motion.span>
-          ))}
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

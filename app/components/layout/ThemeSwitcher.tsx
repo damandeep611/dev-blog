@@ -16,7 +16,7 @@ export function ThemeSwitcher() {
     else setTheme("light");
   };
   return (
-    <div className="flex items-center space-x-2">
+    <div className="flex items-center space-x-2 text-zinc-800">
       <button onClick={handleClick} className="px-3 py-1 rounded-md">
         {theme === "light" && <Sun />}
         {theme === "dark" && <Moon />}

@@ -6,16 +6,12 @@ import { ArrowRight, Menu } from "lucide-react";
 import { AiOutlineHome } from "react-icons/ai";
 import Link from "next/link";
 import ContactCard from "../ContactForm/ContactCard";
+import { ThemeSwitcher } from "./ThemeSwitcher";
 
 export default function NavPill() {
   const [isOpen, setIsOpen] = useState(false);
-  const [showContactCard, setShowContactCard] = useState(false);
-
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-  };
-  const closeContactCard = () => {
-    setShowContactCard(false);
   };
 
   const menuItems = [
@@ -26,9 +22,9 @@ export default function NavPill() {
 
   return (
     <>
-      <div className="fixed bottom-6 left-0 right-0 z-50 flex justify-center">
+      <div className="  fixed bottom-6 left-0 right-0 z-50 sm:flex justify-center md:hidden">
         <motion.div
-          className="relative flex w-[90%] max-w-xl flex-col items-center justify-between overflow-hidden rounded-full bg-white/90 backdrop-blur-sm border border-gray-300"
+          className="relative flex w-[90%] max-w-lg flex-col items-center justify-between overflow-hidden rounded-full bg-white/90 backdrop-blur-sm border border-gray-300"
           animate={{
             width: isOpen ? "95%" : "90%",
             borderRadius: "2rem",
@@ -99,20 +95,10 @@ export default function NavPill() {
               <Menu className="h-6 w-6 text-gray-900" />
             </button>
 
-            {/* CTA Button */}
-            <button
-              onClick={() => setShowContactCard(true)}
-              className="group flex items-center gap-1 rounded-full bg-gray-900 px-5 py-2 text-sm font-medium text-white transition-all hover:bg-gray-800"
-            >
-              Click to Contact
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </button>
+            <ThemeSwitcher />
           </div>
         </motion.div>
       </div>
-      <AnimatePresence>
-        {showContactCard && <ContactCard onClose={closeContactCard} />}
-      </AnimatePresence>
     </>
   );
 }
