@@ -30,13 +30,10 @@ export default function HeroPost({
   tags,
 }: HeroPostProps) {
   return (
-    <section className="relative  max-w-6xl mx-auto  rounded-lg  shadow-md">
+    <section className="relative my-8  max-w-6xl mx-auto  rounded-md border border-zinc-600">
       <Link href={`posts/${slug}`}>
         <div className="relative   rounded-lg">
-          <div className="md:flex">
-            <div className="">
-              <CoverImage title={title} url={coverImage.url} />
-            </div>
+          <div className="md:flex justify-between">
             <div className="p-6 md:w-1/2 md:p-8">
               <div className=" flex justify-center items-start space-y-6 flex-col">
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -58,6 +55,10 @@ export default function HeroPost({
                 </div>
                 <p className=" text-sm mb-4">{excerpt}</p>
               </div>
+            </div>
+            {/* image section */}
+            <div className="">
+              <CoverImage title={title} url={coverImage.url} />
             </div>
           </div>
         </div>

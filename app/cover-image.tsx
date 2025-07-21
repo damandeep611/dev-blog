@@ -33,7 +33,7 @@ export default function CoverImage({
         <Link
           href={`/posts/${slug}`}
           aria-label={title}
-          className="block w-full h-full"
+          className="hidden md:block w-full h-full"
         >
           {image}
         </Link>

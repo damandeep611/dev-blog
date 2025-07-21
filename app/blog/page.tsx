@@ -5,6 +5,10 @@ import { getAllPosts } from "@/lib/api";
 import TagFilter from "../tag-filter";
 import HeroPost from "../hero-post";
 import { ThemeSwitcher } from "../components/layout/ThemeSwitcher";
+import { ArrowDown, ArrowLeft } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import blogimg from "@/public/icons/laptopisometric.png";
 
 export default async function BlogPage({
   searchParams,
@@ -29,12 +33,46 @@ export default async function BlogPage({
 
   return (
     <div className="container mx-auto lg:px-4 py-8">
-      <h1 className="text-4xl font-bold mb-8 flex items-center justify-between gap-2">
-        Blog{" "}
-        <span>
-          <ThemeSwitcher />
-        </span>
-      </h1>
+      <div className="flex items-center justify-between">
+        <Link
+          href="/"
+          className="flex items-center gap-1 text-xs text-neutral-400"
+        >
+          <ArrowLeft className="h-5" /> back to home
+        </Link>
+        <ThemeSwitcher />
+      </div>
+
+      <div className=" w-full mx-auto border-b border-zinc-400">
+        <div className="flex items-center justify-between">
+          <h1 className="text-5xl md:text-6xl lg:text-8xl font-semibold tracking-tighter p-4 md:p-12">
+            Blog <br />
+            <span className="ml-12 text-4xl md:text-5xl lg:text-6xl ">
+              articles
+            </span>
+          </h1>
+          <div>
+            <Image
+              src={blogimg}
+              alt="Work image icon"
+              width={300}
+              height={150}
+            />
+          </div>
+        </div>
+        <div className="flex items-center justify-between">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tighter p-12">
+            <ArrowDown size={50} className="text-zinc-500 " />
+          </h1>
+          <div className="max-w-md text-zinc-500">
+            <p className="text-sm">
+              Some useful React design patterns , JavaScript weirdness and node
+              js backends , AI stuff I'm trying out, and cool repos I stumble
+              across
+            </p>
+          </div>
+        </div>
+      </div>
 
       {/* Hero Post */}
       {heroPost && (
