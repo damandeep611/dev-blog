@@ -9,6 +9,7 @@ import React from "react";
 import ExplorationCard from "./ui/ExplorationCard";
 import GalleryCard from "./ui/GalleryCard";
 import { BsYoutube } from "react-icons/bs";
+import Link from "next/link";
 
 export default function WorkSection() {
   return (
@@ -16,52 +17,58 @@ export default function WorkSection() {
       {/* top row grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
         {/* my works grid box */}
-        <div className="bg-zinc-100 dark:bg-zinc-800 rounded-lg ">
-          <div className="p-4 space-y-3">
-            <span className="text-sm bg-zinc-200 dark:bg-zinc-700 py-1 px-2 rounded-md">
-              Works
-            </span>
-            <h2 className="text-2xl font-medium">Selected Works</h2>
-            <p className="text-sm text-zinc-500">
-              Some of the Projects that i have worked on and some personal build
-              tools also.
-            </p>
-          </div>
-          <div className="">
-            <div className="p-4 ">
-              <ArrowUpRight size={20} />
+        <Link href="/work">
+          <div className="bg-zinc-100 dark:bg-zinc-800 rounded-lg ">
+            <div className="p-4 space-y-3">
+              <span className="text-sm bg-zinc-200 dark:bg-zinc-700 py-1 px-2 rounded-md">
+                Works
+              </span>
+              <h2 className="text-2xl font-medium">Selected Works</h2>
+              <p className="text-sm text-zinc-500">
+                Some of the Projects that i have worked on and some personal
+                build tools also.
+              </p>
             </div>
-            <div className="pt-4 flex items-center justify-center ">
-              <Image
-                src={workimg}
-                alt="Works card image"
-                className="rounded-t-lg shadow-2xl"
-                width={450}
-                height={300}
-              />
+            <div className="">
+              <div className="p-4 ">
+                <ArrowUpRight size={20} />
+              </div>
+              <div className="pt-4 flex items-center justify-center ">
+                <Image
+                  src={workimg}
+                  alt="Works card image"
+                  className="rounded-t-lg shadow-2xl"
+                  width={450}
+                  height={300}
+                />
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
         {/* top right grid */}
         <div className="space-y-8 ">
           {/* blog card */}
-          <div className=" relative flex items-center justify-between bg-zinc-100 dark:bg-zinc-800 rounded-xl overflow-hidden">
-            <div className="p-4 flex flex-col items-start justify-between gap-8">
-              <span className="text-sm  bg-zinc-200 dark:bg-zinc-700 py-1 px-2 rounded-md">
-                Blog
-              </span>
-              <h3 className="text-2xl font-medium">Tech , AI and Tutorials</h3>
-              <p></p>
-              <PackageIcon />
+          <Link href="/blog">
+            <div className=" relative flex items-center justify-between bg-zinc-100 dark:bg-zinc-800 rounded-xl overflow-hidden">
+              <div className="p-4 flex flex-col items-start justify-between gap-8">
+                <span className="text-sm  bg-zinc-200 dark:bg-zinc-700 py-1 px-2 rounded-md">
+                  Blog
+                </span>
+                <h3 className="text-2xl font-medium">
+                  Tech , AI and Tutorials
+                </h3>
+                <p></p>
+                <PackageIcon />
+              </div>
+              <Image
+                src={BlogImage}
+                alt="Blog image"
+                width={200}
+                height={200}
+                className="rounded-l-xl  "
+              />
             </div>
-            <Image
-              src={BlogImage}
-              alt="Blog image"
-              width={200}
-              height={200}
-              className="rounded-l-xl  "
-            />
-          </div>
+          </Link>
           {/* youtube card */}
           <div className="  flex items-center justify-between bg-zinc-100 dark:bg-zinc-800 rounded-xl">
             <div className="p-4 flex flex-col items-start  justify-between gap-8">

@@ -16,7 +16,7 @@ export default function NavPill() {
 
   const menuItems = [
     { title: "Blog", href: "/blog" },
-
+    { title: "Work", href: "/work" },
     { title: "About", href: "/about" },
   ];
 

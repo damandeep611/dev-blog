@@ -27,9 +27,9 @@ export default function ExplorationCard() {
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-24 p-4 ">
-       <span className="text-sm  bg-zinc-200 dark:bg-zinc-700 py-1 px-2 rounded-md">
-              In Progress
-            </span>
+        <span className="text-sm  bg-zinc-200 dark:bg-zinc-700 py-1 px-2 rounded-md">
+          Tool library
+        </span>
         <motion.div
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
@@ -71,7 +71,6 @@ export default function ExplorationCard() {
           </Marquee>
         </div>
       </div>
-
     </motion.div>
-  )
+  );
 }

@@ -61,10 +61,10 @@ export default async function BlogPage({
           </div>
         </div>
         <div className="flex items-center justify-between">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tighter p-12">
+          <h1 className=" hidden md:flex text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tighter p-12">
             <ArrowDown size={50} className="text-zinc-500 " />
           </h1>
-          <div className="max-w-md text-zinc-500">
+          <div className="max-w-md text-zinc-500 px-4 py-8">
             <p className="text-sm">
               Some useful React design patterns , JavaScript weirdness and node
               js backends , AI stuff I'm trying out, and cool repos I stumble
