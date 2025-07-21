@@ -22,11 +22,11 @@ export default function NavPill() {
 
   return (
     <>
-      <div className="  fixed bottom-6 left-0 right-0 z-50 sm:flex justify-center md:hidden">
+      <div className="  fixed bottom-6 left-0 right-0 z-50 flex justify-center items-center md:hidden">
         <motion.div
-          className="relative flex w-[90%] max-w-lg flex-col items-center justify-between overflow-hidden rounded-full bg-white/90 backdrop-blur-sm border border-gray-300"
+          className="relative max-w-md flex-col items-center justify-between overflow-hidden rounded-full bg-white/90 backdrop-blur-sm border border-gray-300"
           animate={{
-            width: isOpen ? "95%" : "90%",
+            width: isOpen ? "95%" : "85%",
             borderRadius: "2rem",
           }}
           transition={{

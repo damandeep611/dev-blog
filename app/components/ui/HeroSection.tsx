@@ -45,7 +45,9 @@ export default function HeroSection() {
               <div className="flex flex-col gap-8">
                 <h2 className="text-2xl text-zinc-400">
                   Hi there. I'm{" "}
-                  <span className="font-semibold text-zinc-950">daman</span>
+                  <span className="font-semibold text-zinc-950 dark:text-white">
+                    daman
+                  </span>
                 </h2>
                 <div className=" hidden md:flex flex-col  gap-2">
                   <p className="text-zinc-400 font-semibold">Socials</p>
@@ -104,7 +106,8 @@ export default function HeroSection() {
                   variants={textReveal}
                 >
                   Tweaking products with{" "}
-                  <span className="text-zinc-950">AI</span>, light and focused.
+                  <span className="text-zinc-950 dark:text-white">AI</span>,
+                  light and focused.
                 </motion.p>
                 <motion.p
                   custom={3}
@@ -114,8 +117,10 @@ export default function HeroSection() {
                 >
                   I Try to Build products that don’t overcomplicate things
                   Building{" "}
-                  <span className="text-zinc-950">--usable, practical</span> and
-                  Fast Apps.
+                  <span className="text-zinc-950 dark:text-white">
+                    --usable, practical
+                  </span>{" "}
+                  and Fast Apps.
                 </motion.p>
               </div>
               {/* mobile only column for socials and services links */}

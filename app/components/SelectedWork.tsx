@@ -32,9 +32,6 @@ export default function SelectedWork() {
   return (
     <section className="w-full mx-auto px-4 md:px-16">
       <div className="mt-16 ">
-        <p className="font-mono py-8 uppercase">
-          Some Tools and webApps that i've made
-        </p>
         {/* project cards */}
         <div className="flex items-center justify-start">
           <div className="w-full">

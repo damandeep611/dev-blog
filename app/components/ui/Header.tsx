@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import ContactCard from "../ContactForm/ContactCard";
+import { ThemeSwitcher } from "../layout/ThemeSwitcher";
 
 export default function Header() {
   const [showContactCard, setShowContactCard] = useState(false);
@@ -46,9 +47,12 @@ export default function Header() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-xl md:text-xl font-bold "
+              className="text-xl md:text-xl font-bold flex  "
             >
-              Daman
+              Daman{" "}
+              <div className="hidden md:flex">
+                <ThemeSwitcher />
+              </div>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -66,7 +70,7 @@ export default function Header() {
             <motion.div variants={navLinkHover} className="" key={link.url}>
               <Link
                 href={link.url}
-                className="uppercase text-sm dark:text-zinc-400"
+                className="uppercase text-sm dark:text-zinc-400 text-zinc-600"
               >
                 {link.title}
               </Link>
