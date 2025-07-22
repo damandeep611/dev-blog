@@ -3,6 +3,9 @@
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { BsGithub, BsInstagram, BsTwitterX, BsYoutube } from "react-icons/bs";
 
 export default function HeroSection() {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
@@ -32,33 +35,21 @@ export default function HeroSection() {
       },
     }),
   };
+  const socialLinks = [
+    { icon: BsGithub, url: "https://github.com/damandeep611" },
+    { icon: BsInstagram, url: "https://github.com/damandeep611" },
+    { icon: BsTwitterX, url: "https://github.com/damandeep611" },
+    { icon: BsYoutube, url: "https://github.com/damandeep611" },
+  ];
 
   return (
     <>
-      <section className=" flex flex-col items-center justify-center py-2 px-4 ">
+      <section className=" max-w-4xl mx-auto py-2 px-4  ">
         <div className="w-full  mx-auto">
           {/* Profile Header */}
           <Header />
           <div className=" w-full text-md py-8  ">
-            <div className=" w-full grid grid-cols-1 md:grid-cols-3 gap-5">
-              {/* column first */}
-              <div className="flex flex-col gap-8">
-                <h2 className="text-2xl text-zinc-400">
-                  Hi there. I'm{" "}
-                  <span className="font-semibold text-zinc-950 dark:text-white">
-                    daman
-                  </span>
-                </h2>
-                <div className=" hidden md:flex flex-col  gap-2">
-                  <p className="text-zinc-400 font-semibold">Socials</p>
-                  <div className="flex flex-col text-sm">
-                    <span>LinkedIn</span>
-                    <span>Instagram</span>
-                    <span>Twitter</span>
-                  </div>
-                </div>
-              </div>
-              {/* column 2nd */}
+            <div className=" flex flex-col items-start justify-between gap-5">
               <div className="flex flex-col gap-4">
                 <div>
                   <motion.div
@@ -66,11 +57,11 @@ export default function HeroSection() {
                     initial="hidden"
                     animate="visible"
                     variants={textReveal}
-                    className="text-2xl  relative "
+                    className=" relative text-3xl md:text-5xl lg:text-6xl font-semibold "
                   >
-                    Designer / Developer
+                    Designer/ Developer
                     <motion.div
-                      className="absolute -top-4 right-32 rotate-12   bg-yellow-400 text-black px-3 py-1 rounded-full text-xs font-bold  overflow-hidden"
+                      className="absolute -top-4 -right-10 rotate-45  bg-yellow-400 text-black px-3 py-1 rounded-full text-xs font-bold  overflow-hidden"
                       initial={{ opacity: 0, scale: 0 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.5, delay: 0.8 }}
@@ -86,60 +77,54 @@ export default function HeroSection() {
                       </motion.div>
                     </motion.div>
                   </motion.div>
-                  <span className="text-zinc-400">Based in India</span>
-                </div>
-                <div className="  hidden md:flex flex-col  gap-2">
-                  <p className="text-zinc-400 font-semibold">Skills</p>
-                  <div className="flex flex-col text-sm">
-                    <span>Web Design</span>
-                    <span>Mobile Apps</span>
-                    <span>Twitter</span>
-                  </div>
+                  <motion.span
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -20, opacity: 0 }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    className="text-xs text-zinc-400"
+                  >
+                    Based in India
+                  </motion.span>
                 </div>
               </div>
-              {/* 3rd column */}
-              <div className="text-2xl text-zinc-400">
+
+              <div className=" text-base md:text-xl lg:text-2xl  text-zinc-400">
                 <motion.p
                   custom={2}
                   initial="hidden"
                   animate="visible"
                   variants={textReveal}
                 >
-                  Tweaking products with{" "}
-                  <span className="text-zinc-950 dark:text-white">AI</span>,
-                  light and focused.
-                </motion.p>
-                <motion.p
-                  custom={3}
-                  initial="hidden"
-                  animate="visible"
-                  variants={textReveal}
-                >
-                  I Try to Build products that don’t overcomplicate things
-                  Building{" "}
-                  <span className="text-zinc-950 dark:text-white">
-                    --usable, practical
-                  </span>{" "}
-                  and Fast Apps.
+                  Tweaking products with AI light and focused , I Try to Build
+                  products that don’t overcomplicate things Building -usable,
+                  practical and Fast Apps.
                 </motion.p>
               </div>
-              {/* mobile only column for socials and services links */}
-              <div className="  flex md:hidden items-center justify-between py-4 px-4">
-                <div className=" flex flex-col  gap-2">
-                  <p className="text-zinc-400 font-semibold">Socials</p>
-                  <div className="flex flex-col text-sm">
-                    <span>LinkedIn</span>
-                    <span>Instagram</span>
-                    <span>Twitter</span>
-                  </div>
-                </div>
-                <div className="flex flex-col  gap-2">
-                  <p className="text-zinc-400 font-semibold">Skills</p>
-                  <div className="flex flex-col text-sm">
-                    <span>Web Design</span>
-                    <span>Mobile Apps</span>
-                    <span>Twitter</span>
-                  </div>
+              <div className="flex flex-col  gap-2">
+                <p className="text-zinc-400 font-semibold">Connect</p>
+                <div className="flex items-center justify-between gap-5">
+                  {socialLinks.map((link) => (
+                    <motion.div
+                      key={link.url}
+                      className=" flex overflow-hidden"
+                      whileHover={{ x: 5 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10,
+                      }}
+                    >
+                      <Link
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center  gap-2 text-sm dark:text-zinc-400  hover:text-gray-300 transition-colors"
+                      >
+                        <link.icon size={16} />
+                      </Link>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
             </div>

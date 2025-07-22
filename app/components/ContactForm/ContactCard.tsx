@@ -57,14 +57,14 @@ export default function ContactCard({ onClose }: ContactCardProps) {
       onClick={onClose}
     >
       <motion.div
-        className="relative w-[90%] max-w-md rounded-xl bg-blue-600 text-white p-6 shadow-xl"
+        className="relative w-[90%] max-w-md rounded-xl bg-zinc-800 text-white p-6 shadow-xl"
         initial={{ scale: 0.9, y: 50 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.9, y: 50 }}
         onClick={(e) => e.stopPropagation()}
       >
         <button
-          className="absolute top-3 right-3 p-1 rounded-full hover:bg-blue-700 transition-colors "
+          className="absolute top-3 right-3 p-1 rounded-full hover:bg-zinc-700 transition-colors "
           onClick={onClose}
         >
           <X className="w-5 h-5" />
@@ -77,7 +77,7 @@ export default function ContactCard({ onClose }: ContactCardProps) {
             animate={{ opacity: 1 }}
           >
             <motion.div
-              className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-blue-600 mb-4"
+              className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-zinc-600 mb-4"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", damping: 10, stiffness: 100 }}
@@ -98,7 +98,7 @@ export default function ContactCard({ onClose }: ContactCardProps) {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-3 py-2 bg-blue-700 rounded-md border border-blue-400 focus:outline-none focus:ring-2 focus:ring-white text-white placeholder-blue-300"
+                className="w-full px-3 py-2 bg-zinc-700 rounded-md border border-zinc-400 focus:outline-none focus:ring-2 focus:ring-white text-white placeholder-zinc-300"
                 placeholder="your@email.com"
                 required
               />
@@ -117,7 +117,7 @@ export default function ContactCard({ onClose }: ContactCardProps) {
                 id="message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="w-full px-3 py-2 bg-blue-700 rounded-md border border-blue-400 focus:outline-none focus:ring-2 focus:ring-white text-white placeholder-blue-300 min-h-[100px] resize-none"
+                className="w-full px-3 py-2 bg-zinc-700 rounded-md border border-zinc-400 focus:outline-none focus:ring-2 focus:ring-white text-white placeholder-zinc-300 min-h-[100px] resize-none"
                 placeholder="Type your message here ..."
                 required
               />
@@ -127,13 +127,13 @@ export default function ContactCard({ onClose }: ContactCardProps) {
             {/* submit button and action */}
             <motion.button
               type="submit"
-              className="w-full py-2 px-4 bg-white text-blue-600 font-medium rounded-md hover:bg-blue-50 transition-colors flex items-center justify-center"
+              className="w-full py-2 px-4 bg-white text-zinc-600 font-medium rounded-md hover:bg-blue-50 transition-colors flex items-center justify-center"
               whileTap={{ scale: 0.95 }}
               disabled={isSending}
             >
               {isSending ? (
                 <motion.div
-                  className="w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full"
+                  className="w-5 h-5 border-2 border-zinc-600 border-t-transparent rounded-full"
                   animate={{ rotate: 360 }}
                   transition={{
                     duration: 1,
@@ -151,3 +151,4 @@ export default function ContactCard({ onClose }: ContactCardProps) {
     </motion.div>
   );
 }
+

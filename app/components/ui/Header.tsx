@@ -22,13 +22,10 @@ export default function Header() {
       transition: { duration: 0.3, ease: "easeInOut" },
     },
   };
-  const socialLinks = [
-    { name: "Github", url: "https://github.com/damandeep611" },
-  ];
+ 
   const navMenu = [
     { title: "Selected Works", url: "/work" },
     { title: "Blog", url: "/blog" },
-    { title: "About", url: "/about" },
   ];
   return (
     <>
@@ -47,21 +44,10 @@ export default function Header() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-xl md:text-xl font-bold flex  "
-            >
-              Daman{" "}
-              <div className="hidden md:flex">
-                <ThemeSwitcher />
-              </div>
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className=" text-sm"
+              className="text-sm   "
             >
               @devdaman
-            </motion.p>
+            </motion.h1>
           </div>
         </div>
         {/* navigation menu */}
@@ -79,32 +65,17 @@ export default function Header() {
         </div>
         {/* Right section - Social links */}
         <div className="flex items-center justify-center gap-4">
-          {socialLinks.map((link) => (
-            <motion.div
-              key={link.name}
-              className=" hidden md:flex overflow-hidden"
-              whileHover={{ x: 5 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            >
-              <Link
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center  gap-2 text-sm dark:text-zinc-400  hover:text-gray-300 transition-colors"
-              >
-                {link.name}
-                <ArrowUpRight className="w-5 h-5" />
-              </Link>
-            </motion.div>
-          ))}
           <div>
             <button
               onClick={() => setShowContactCard(true)}
-              className="  flex items-center justify-between gap-2  bg-zinc-800 text-white uppercase text-sm p-2 px-4 rounded-full"
+              className="  flex items-center justify-between gap-2  bg-zinc-800 text-white uppercase text-xs md:text-sm p-2 px-2  md:px-4 rounded-full"
             >
               work with me
               <ArrowUpRight size={16} />
             </button>
+          </div>
+          <div className="hidden md:flex">
+            <ThemeSwitcher />
           </div>
         </div>
       </header>
